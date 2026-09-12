@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary": "#1f6c3a", "secondary-container": "#a4f1b2", "primary-fixed": "#b3efd5", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#8bd79b", "on-surface-variant": "#404944", "secondary-fixed": "#a6f4b5", "error": "#ba1a1a", "tertiary": "#00361c", "on-background": "#131b2e", "inverse-on-surface": "#eef0ff", "primary": "#003526", "tertiary-container": "#004f2b", "primary-container": "#0e4d3a", "surface-container-highest": "#dae2fd", "surface": "#faf8ff", "surface-variant": "#dae2fd", "surface-container": "#eaedff", "tertiary-fixed-dim": "#73db9a", "outline": "#707974", "on-primary-fixed": "#002116", "on-secondary-fixed": "#00210b", "inverse-primary": "#98d3b9", "surface-dim": "#d2d9f4", "surface-container-high": "#e2e7ff", "on-surface": "#131b2e", "on-tertiary-fixed": "#00210f", "on-primary": "#ffffff", "on-tertiary-fixed-variant": "#00522d", "on-error-container": "#93000a", "on-tertiary-container": "#5dc586", "on-secondary-fixed-variant": "#005226", "error-container": "#ffdad6", "on-error": "#ffffff", "on-primary-container": "#82bda4", "on-primary-fixed-variant": "#13503d", "on-secondary-container": "#24703e", "background": "#faf8ff", "inverse-surface": "#283044", "surface-tint": "#2f6954", "surface-bright": "#faf8ff", "primary-fixed-dim": "#98d3b9", "surface-container-low": "#f2f3ff", "on-secondary": "#ffffff", "outline-variant": "#bfc9c2", "tertiary-fixed": "#8ff8b4", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-mobile": "1rem", "gutter-mobile": "1rem", "margin-desktop": "3rem", "space-2xl": "4rem", "gutter": "1.5rem", "space-xs": "0.25rem", "space-md": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "margin": "2rem", "space-lg": "1.5rem" }, "fontFamily": { "headline-lg": ["Plus Jakarta Sans"], "caption": ["Inter"], "label-md": ["Inter"], "body-md": ["Inter"], "label-sm": ["Inter"], "title-md": ["Inter"], "display": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "display-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "headline-lg": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "caption": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.04em", "fontWeight": "500" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-md": ["0.9375rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.03em", "fontWeight": "600" }], "title-md": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display": ["3.25rem", { "lineHeight": "3.75rem", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-md": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-sm": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0.005em", "fontWeight": "400" }], "display-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.005em", "fontWeight": "400" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }] } } } }</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_4px_rgba(15,23,42,0.05),0_4px_16px_rgba(14,77,58,0.04)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="DietMed Clinical Academy Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VinP5xy8au23ejZG5388rmnbSnCCyBOG0-E3Nq3GLGH6tTr1vE-ASqdAiahC_Nr3kE7MytV2Xg9anzROICJJuSLzzYtJD8OHZqBTe62Az1qjNUW23hNtiYvm4oofN5UTU1zX-vec1io9dMFa6gTxhBT3y10-7p8McEco1BUJjxV4x-7eWnq7Wq1bi1Xx0-A5isrAmosDg5s--ug8lIjxyv8BVKN2cgmQPZCarWyzsDkk-yOSiDBN9tGyzF"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">DietMed</span><span class="px-space-xs py-0.5 rounded bg-primary-container text-on-primary font-caption text-caption font-semibold uppercase tracking-wider">Intern Hub</span></div><span class="font-caption text-caption text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-xs text-secondary">local_hospital</span>Affiliated: Apollo Multi-Specialty Hospital</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="text-primary font-semibold bg-surface-container-low rounded-lg shadow-sm"><a class="px-space-sm py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview" href="#">Overview</a><a aria-current="page" class="px-space-sm py-space-xs transition-colors flex items-center gap-1 text-primary font-semibold bg-surface-container-low rounded-lg shadow-sm" data-path="assigned-k-sheets" href="#">Assigned K-Sheets<span class="w-4 h-4 rounded-full bg-secondary text-on-secondary font-caption text-[10px] flex items-center justify-center font-bold">3</span></a><a class="px-space-sm py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="1-on-1-mentorship-sessions" href="#">1-on-1 Mentorship Sessions</a><a class="px-space-sm py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="case-report-submissions" href="#">Case Report Submissions</a><a class="px-space-sm py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="verified-certificates" href="#">Verified Certificates</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs"><a class="inline-flex items-center justify-center gap-1 px-space-sm py-space-xs bg-surface-container-low text-primary border border-outline-variant hover:border-primary font-label-sm text-label-sm rounded-lg transition-colors" data-path="1-on-1-mentorship-sessions" href="#"><span class="material-symbols-outlined text-sm text-secondary">videocam</span>Join 1-on-1 Meeting</a><a class="inline-flex items-center justify-center gap-1 px-space-sm py-space-xs bg-primary-container text-on-primary font-label-sm text-label-sm rounded-lg shadow-sm hover:bg-secondary transition-all" data-path="case-report-submissions" href="#"><span class="material-symbols-outlined text-sm">upload_file</span>Submit Case Report</a></div><div class="flex items-center gap-space-sm pl-space-xs border-l border-outline-variant/40"><div class="relative"><img alt="Ananya Sharma Avatar" class="w-9 h-9 rounded-full object-cover shadow-sm ring-2 ring-secondary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoAgEkH3Yaoo9KRjHenrvcYhyylAglc6pptgQXijdCKs1xbkSmX4_FEi6NxbyZssyaL2gj0KTg9Esce_CYDFZx2BL4RGan79x4PI_K6DyYKLNo1325EDIb0Lwj3cQ8S5sIDZxvRWACXBpMHm-tKx0ERi7-R1tbv37SMYiTYNhFKkQ9pU4juUT6dI1zC8PURttrwPtJW5w2rN9l3f2-PiloDVUS4wGsL3j_hBO0VNs5ZS61_mHFmBw3Nw"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="flex flex-col text-left"><div class="flex items-center gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface font-semibold leading-none">Ananya Sharma</span><span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-caption text-[10px] font-bold">Day 22 / Inpatient Phase</span></div><span class="font-caption text-caption text-on-surface-variant">Intern ID: #DM-2024-089 • Cohort Day 22 of 45</span></div></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- Subtle ambient aura -->
+<div class="relative overflow-hidden">
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -left-32 w-96 h-96 rounded-full bg-surface-container-highest/60 blur-3xl pointer-events-none"></div>
+<!-- Hero / Institutional Overview Banner -->
+<div class="max-w-[1320px] mx-auto px-gutter pt-space-lg pb-space-xl">
+<!-- Breadcrumb and Accreditation Pill Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-lg">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-primary font-semibold">Reshma Nutriclinic LLP</span>
+<span>/</span>
+<span class="text-on-surface-variant">About Our Practice &amp; Leadership</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-caption text-caption font-bold tracking-wide">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span>
+            GOVT. CERTIFIED REGISTRATION
+          </span>
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-high text-primary font-caption text-caption font-bold tracking-wide">
+<span class="material-symbols-outlined text-xs text-secondary">local_hospital</span>
+            NABH ACCREDITED AFFILIATION
+          </span>
+</div>
+</div>
+<!-- Main Leadership Stage: Asymmetric Split Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Column: Bio, Credentials & Accreditations (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md font-bold tracking-wider uppercase">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Founder &amp; Clinical Director Spotlight
+            </div>
+<h1 class="font-display text-display text-primary tracking-tight">
+              Dt. Sk. Reshma
+            </h1>
+<p class="font-headline-sm text-headline-sm text-on-surface font-medium leading-snug">
+              Senior Clinical Dietitian &amp; Head of Department of Dietetics
+              <span class="block text-secondary font-semibold">OMNI Hospitals Kukatpally • Founder, Reshma Nutriclinic LLP</span>
+</p>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Pioneering evidence-based medical nutrition therapy at the intersection of critical hospital care and clinical outpatient mastery. Certified across national regulatory and dietetic bodies, Dt. Reshma translates complex biochemical pathology into life-sustaining, precise nutritional interventions.
+          </p>
+<!-- Verified Accreditation Badges Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed/50 flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-primary">IDA Life Member</span>
+<span class="font-caption text-caption text-on-surface-variant">Indian Dietetic Association (Active Fellow)</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed/50 flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-primary">FSSAI &amp; IAPEN Certified</span>
+<span class="font-caption text-caption text-on-surface-variant">Clinical Nutrition Specialist &amp; Safety Officer</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed/50 flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined">emoji_events</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-primary">PEPTAQUEST Awardee</span>
+<span class="font-caption text-caption text-on-surface-variant">Scientific Symposium Winner (Peptide Formulation)</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed/50 flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-primary">NABH HOD Clinical Lead</span>
+<span class="font-caption text-caption text-on-surface-variant">Hospital Accreditation Inpatient Supervisor</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Bar -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="inline-flex items-center justify-center gap-2 px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-md hover:bg-primary-container transition-all" href="#consultation-desk">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+              Book Clinical Consultation
+            </a>
+<a class="inline-flex items-center justify-center gap-2 px-space-lg py-space-sm rounded-lg bg-surface-container-low text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-highest transition-all" href="#internship-wing">
+<span class="material-symbols-outlined text-base">school</span>
+              DietMed Fellowship Wing
+            </a>
+</div>
+</div>
+<!-- Right Column: Elevated Doctor Portrait Presentation (5 cols) -->
+<div class="lg:col-span-5 flex justify-center">
+<div class="relative w-full max-w-[420px]">
+<!-- Geometric Decorative backing -->
+<div class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-secondary-fixed/40 -z-10"></div>
+<div class="relative bg-surface-container-lowest rounded-2xl p-space-sm shadow-xl overflow-hidden">
+<div class="relative rounded-xl overflow-hidden aspect-[0.78] bg-surface-container">
+<img alt="Dt. Sk. Reshma - Senior Clinical Dietitian and HOD Department of Dietetics at OMNI Hospitals Kukatpally and Director of Reshma Nutriclinic LLP" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTpyhJSjT5crzLBfCtGs0bPcH7P51KmgcaSsJsSd9Ox22OobdE2IwoU3gBUrmMDOEIc3Icbk8rCOp4AMQMDx4xaDF6FR3s9UenQBhFDQMnZP-znJ1mcn0-uPEMDFH94EkXAhaayO-4dVi7cMFwVMw5wzP16ma-UTRNhmdfv1cDO_n5EnoT_5kP5V-Y1xiUl0BtSQgViXDHjjbY5CdQhmTMINU2ajv4o7Gp5zFsPVnymfoo8tdDShWlXw"/>
+<!-- Floating NABH & Inpatient Trust Badge -->
+<div class="absolute bottom-3 left-3 right-3 p-space-sm rounded-lg bg-surface-container-lowest/95 backdrop-blur-md shadow-md flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-primary">OPD &amp; Bedside Active</span>
+<span class="font-caption text-caption text-on-surface-variant">OMNI Hospitals • Kukatpally</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-caption text-[11px] font-bold">NABH H-2019-0631</span>
+</div>
+</div>
+<!-- Digital signature strip -->
+<div class="pt-space-sm px-space-xs flex items-center justify-between text-on-surface-variant">
+<span class="font-caption text-caption tracking-wider uppercase">Reg. Healthcare Provider</span>
+<span class="font-caption text-caption font-semibold text-primary">Reshma Nutriclinic LLP</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Key Clinical Metrics Strip (Full-bleed card row) -->
+<div class="w-full bg-surface-container-low py-space-xl">
+<div class="max-w-[1320px] mx-auto px-gutter">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-secondary">
+<span class="material-symbols-outlined text-2xl">history_edu</span>
+<span class="font-caption text-caption uppercase font-semibold text-on-surface-variant">Tenure</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary font-bold">10+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Years of Rigorous Tertiary Care Practice</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-secondary">
+<span class="material-symbols-outlined text-2xl">clinical_notes</span>
+<span class="font-caption text-caption uppercase font-semibold text-on-surface-variant">Case Volume</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary font-bold">15,000+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hospital &amp; Outpatient Dietary Formulations</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-secondary">
+<span class="material-symbols-outlined text-2xl">apartment</span>
+<span class="font-caption text-caption uppercase font-semibold text-on-surface-variant">Clinical Role</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary font-bold">HOD</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Department of Dietetics, OMNI Hospitals</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-secondary">
+<span class="material-symbols-outlined text-2xl">group_work</span>
+<span class="font-caption text-caption uppercase font-semibold text-on-surface-variant">Academy</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary font-bold">500+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Postgrad Dietitians Mentored &amp; Verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mission & Clinical Philosophy Section -->
+<div class="max-w-[1320px] mx-auto px-gutter py-space-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<span class="font-caption text-caption uppercase tracking-wider text-secondary font-bold">Practice Philosophy</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">
+          Bridging Hospital Bedside Precision with Everyday Nutrition.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          At Reshma Nutriclinic LLP, clinical dietetics is treated not as generic lifestyle guidance, but as targeted, biochemical medicine. Every dietary formula is engineered according to individual renal clearance, glycemic excursion trends, cardiac stress, and digestive gut mucosal integrity.
+        </p>
+<div class="p-space-md bg-surface-container rounded-xl flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-2xl">science</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-semibold">Peptaquest Award-Winning Methodology</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Recognized at peer-reviewed scientific symposiums for innovative peptide-based enteral regimens that accelerate critical care surgical convalescence.
+            </span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-xs">01</div>
+<span class="font-title-md text-title-md text-primary font-semibold">Biochemical Triangulation</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Assessment begins with lab panels (HbA1c, eGFR, lipid subfractions, LFT) before a single macro ratio is designed.</p>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-xs">02</div>
+<span class="font-title-md text-title-md text-primary font-semibold">Zero-Fad Sustainability</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Rejecting unsustainable starvation protocols in favor of culturally resonant, metabolic-restorative daily nutrition.</p>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-xs">03</div>
+<span class="font-title-md text-title-md text-primary font-semibold">ICU to Outpatient Continuum</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous nutritional tracking following patients from acute hospital discharge directly into home rehabilitation.</p>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-xs">04</div>
+<span class="font-title-md text-title-md text-primary font-semibold">Academic Rigor &amp; Fellowship</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Active teaching unit training next-generation dietetic interns in real-time bedside K-sheet documentation.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Core Clinical Specializations (From Visiting Card) -->
+<div class="w-full bg-surface-container-low/60 py-space-2xl">
+<div class="max-w-[1320px] mx-auto px-gutter flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-xl">
+<span class="font-caption text-caption uppercase tracking-wider text-secondary font-bold">Comprehensive Clinical Scope</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">
+            Areas of Medical Nutrition Expertise
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Specialized therapeutic diet planning rooted in tertiary hospital protocols and certified by Dt. Sk. Reshma.
+          </p>
+</div>
+<div class="inline-flex items-center gap-2 px-space-md py-space-xs rounded-full bg-surface-container-lowest shadow-sm text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-secondary text-base">emergency</span>
+          Inpatient &amp; Outpatient Management
+        </div>
+</div>
+<!-- 6-Card Expertise Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- 1: Diabetes -->
+<div class="p-space-lg bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">bloodtype</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">Diabetes Management</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Comprehensive medical nutrition therapy for Type 1, Type 2, and Gestational Diabetes (GDM). Carbohydrate counting, glycemic index management, and insulin-to-carb ratio alignment.
+            </p>
+</div>
+<div class="pt-space-md mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">GDM Protocols</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">Glycemic Balancing</span>
+</div>
+</div>
+<!-- 2: Weight & Hormones -->
+<div class="p-space-lg bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">monitor_weight</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">Weight &amp; Hormonal Health</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Clinical protocols for healthy weight reduction, lean mass gain, PCOS/PCOD hormonal balancing, insulin resistance reversal, and thyroid metabolic optimization.
+            </p>
+</div>
+<div class="pt-space-md mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">PCOS/PCOD</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">Thyroid Nutrition</span>
+</div>
+</div>
+<!-- 3: Cardiac & Renal -->
+<div class="p-space-lg bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">cardiology</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">Cardiac &amp; Renal Diet</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Targeted low-sodium, low-phosphorus, potassium-calibrated nutrition plans for CAD, Hypertension, Pre-dialysis Chronic Kidney Disease, and Maintenance Hemodialysis.
+            </p>
+</div>
+<div class="pt-space-md mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">Renal K-Sheets</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">DASH Diet</span>
+</div>
+</div>
+<!-- 4: Gastrointestinal -->
+<div class="p-space-lg bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">water_bottle</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">Gastrointestinal Disorders</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Gut-restoration medical protocols for Irritable Bowel Syndrome (IBS), Chronic Gastritis, Non-Alcoholic Fatty Liver (NAFLD), and Inflammatory Bowel Disease (IBD).
+            </p>
+</div>
+<div class="pt-space-md mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">FODMAP Control</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">Liver Detox Support</span>
+</div>
+</div>
+<!-- 5: ICU Critical Care -->
+<div class="p-space-lg bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">vital_signs</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">ICU Enteral &amp; Parenteral</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Tertiary-grade formulation of tube feeds, continuous enteral infusions, total parenteral nutrition (TPN), and intensive postoperative surgical recovery replenishment.
+            </p>
+</div>
+<div class="pt-space-md mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">TPN Protocols</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">Surgical Convalescence</span>
+</div>
+</div>
+<!-- 6: Pediatric & Geriatric -->
+<div class="p-space-lg bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">family_restroom</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">Pediatric &amp; Geriatric Care</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Age-specialized diet therapy addressing childhood growth faltering, adolescent nutrition, senior sarcopenia, swallowing difficulties, and geriatric metabolic balance.
+            </p>
+</div>
+<div class="pt-space-md mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">Growth Velocity</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-caption text-caption">Senior Sarcopenia</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- DietMed Clinical Academy & Mentorship Wing -->
+<div class="max-w-[1320px] mx-auto px-gutter py-space-2xl" id="internship-wing">
+<div class="bg-primary text-on-primary rounded-2xl p-space-xl relative overflow-hidden shadow-xl">
+<!-- Decorative circle overlay -->
+<div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-secondary-container/10 blur-2xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded bg-surface-container-lowest/15 text-primary-fixed font-caption text-caption font-semibold uppercase tracking-wider">
+              Educational Division
+            </span>
+<span class="text-on-primary-container font-caption text-caption">• DietMed Clinical Academy Partnership</span>
+</div>
+<h2 class="font-display-mobile text-display-mobile lg:font-headline-lg lg:text-headline-lg tracking-tight">
+            Hospital-Immersive Dietetic Fellowship &amp; Mentorship Program
+          </h2>
+<p class="font-body-md text-body-md text-primary-fixed-dim leading-relaxed">
+            Under the clinical directorship of Dt. Sk. Reshma, Reshma Nutriclinic LLP serves as the premier clinical training partner for DietMed Clinical Academy. Interns and fellows participate in authentic 45-day inpatient rotations, formulating actual patient K-Sheets across ICU, Nephrology, and Post-Surgical wards.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-xs">
+<div class="flex flex-col gap-1 p-space-sm bg-surface-container-lowest/10 rounded-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed">assignment</span>
+<span class="font-label-md text-label-md font-bold">Daily Patient K-Sheets</span>
+<span class="font-caption text-caption text-primary-fixed-dim">Real ICU &amp; ward case charts</span>
+</div>
+<div class="flex flex-col gap-1 p-space-sm bg-surface-container-lowest/10 rounded-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed">record_voice_over</span>
+<span class="font-label-md text-label-md font-bold">1-on-1 Faculty Defense</span>
+<span class="font-caption text-caption text-primary-fixed-dim">Direct case viva with Dt. Reshma</span>
+</div>
+<div class="flex flex-col gap-1 p-space-sm bg-surface-container-lowest/10 rounded-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed">verified</span>
+<span class="font-label-md text-label-md font-bold">Accredited Transcript</span>
+<span class="font-caption text-caption text-primary-fixed-dim">Verified IDA clinical hours credit</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-md bg-surface-container-lowest/10 p-space-lg rounded-xl backdrop-blur-md">
+<span class="font-title-md text-title-md font-bold">Currently in Training?</span>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">
+            Access your assigned hospital modules, mentor appointment logs, or submit today's bedside case report.
+          </p>
+<div class="flex flex-col gap-space-xs">
+<a class="w-full inline-flex items-center justify-between p-space-sm bg-surface-container-lowest text-primary rounded-lg font-label-md text-label-md font-semibold hover:bg-secondary-fixed transition-colors" data-path="assigned-k-sheets" href="#">
+<span>Access Daily K-Sheets</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+<a class="w-full inline-flex items-center justify-between p-space-sm bg-surface-container-lowest/20 text-on-primary rounded-lg font-label-md text-label-md font-semibold hover:bg-surface-container-lowest/30 transition-colors" data-path="1-on-1-mentorship-sessions" href="#">
+<span>Book Mentorship Viva</span>
+<span class="material-symbols-outlined text-base">videocam</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Clinic & Consultation Booking Desk (With Visiting Card Elements) -->
+<div class="max-w-[1320px] mx-auto px-gutter pb-space-2xl w-full" id="consultation-desk">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl overflow-hidden">
+<!-- Special Visiting Card Offer Ribbon -->
+<div class="w-full bg-gradient-to-r from-secondary to-primary text-on-primary py-space-sm px-gutter flex flex-col sm:flex-row items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2 font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-secondary-fixed">savings</span>
+<span>Save 15% on Clinical Consultation when you Pay Online</span>
+</div>
+<span class="font-caption text-caption tracking-wider uppercase bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-extrabold">
+          Verified Web Discount
+        </span>
+</div>
+<div class="p-space-lg sm:p-space-xl grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-caption text-caption text-secondary font-bold uppercase tracking-wider">Direct Clinical Desk</span>
+<h3 class="font-headline-md text-headline-md text-primary">
+              Schedule with Dt. Sk. Reshma &amp; Clinical Team
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              In-person hospital appointments available at OMNI Hospitals, Kukatpally, as well as digital outpatient tele-consultations across India.
+            </p>
+</div>
+<!-- Phone & Web Badge Block (Matching Visiting Card layout) -->
+<div class="p-space-md bg-surface-container rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">call</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant uppercase font-semibold">Priority Helpline</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">8880 101 000</span>
+</div>
+</div>
+<div class="flex flex-col sm:items-end">
+<span class="font-caption text-caption text-on-surface-variant uppercase font-semibold">Hospital Portal</span>
+<a class="font-label-md text-label-md text-secondary font-bold hover:underline flex items-center gap-1" href="https://www.omnihospitals.in" rel="noopener noreferrer" target="_blank">
+                www.omnihospitals.in
+                <span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">location_on</span>
+<span><strong>OMNI Hospitals Kukatpally:</strong> Mumbai Hwy, Kukatpally Housing Board Colony, Hyderabad, Telangana 500072</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">schedule</span>
+<span><strong>OPD Timings:</strong> Mon – Sat: 10:00 AM – 4:00 PM | Emergency Bedside by Ward Request</span>
+</div>
+</div>
+</div>
+<!-- Direct Consultation Booking Card -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-md">
+<span class="font-title-md text-title-md text-primary font-semibold">Request Consultation Slot</span>
+<form class="flex flex-col gap-space-sm" onsubmit="event.preventDefault(); alert('Consultation request received. Our clinical coordinator will call back within 15 minutes.');">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium" for="patient-name">Patient Full Name</label>
+<input class="h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface text-body-md outline-none focus:ring-2 focus:ring-secondary/40 shadow-sm" id="patient-name" placeholder="e.g. Priyadarshini Rao" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium" for="contact-phone">Contact Phone Number</label>
+<input class="h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface text-body-md outline-none focus:ring-2 focus:ring-secondary/40 shadow-sm" id="contact-phone" placeholder="+91 98765 43210" required="" type="tel"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium" for="consult-type">Consultation Specialty</label>
+<select class="h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface text-body-md outline-none focus:ring-2 focus:ring-secondary/40 shadow-sm" id="consult-type">
+<option>Diabetes Management &amp; Glycemic Control</option>
+<option>Cardiac &amp; Renal Medical Nutrition</option>
+<option>Weight &amp; Hormonal Health (PCOS / Thyroid)</option>
+<option>Gastrointestinal / Liver Recovery</option>
+<option>ICU / Post-Surgical Nutritional Review</option>
+<option>Pediatric / Geriatric Diet Planning</option>
+</select>
+</div>
+<button class="mt-space-xs w-full h-11 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-colors flex items-center justify-center gap-2 shadow-md" type="submit">
+<span class="material-symbols-outlined text-sm">lock</span>
+              Confirm &amp; Apply 15% Web Savings
+            </button>
+</form>
+<span class="font-caption text-caption text-center text-on-surface-variant">
+            Patient health data handled with strict medical confidentiality.
+          </span>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-low mt-space-2xl"><div class="max-w-[1440px] mx-auto px-gutter py-space-2xl flex flex-col gap-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="DietMed Clinical Academy Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VinP5xy8au23ejZG5388rmnbSnCCyBOG0-E3Nq3GLGH6tTr1vE-ASqdAiahC_Nr3kE7MytV2Xg9anzROICJJuSLzzYtJD8OHZqBTe62Az1qjNUW23hNtiYvm4oofN5UTU1zX-vec1io9dMFa6gTxhBT3y10-7p8McEco1BUJjxV4x-7eWnq7Wq1bi1Xx0-A5isrAmosDg5s--ug8lIjxyv8BVKN2cgmQPZCarWyzsDkk-yOSiDBN9tGyzF"/><span class="font-headline-sm text-headline-sm text-primary">DietMed Clinical Academy</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Accredited postgraduate clinical nutrition &amp; medical dietetics fellowship portal. Bridging evidence-based biochemical nutritional intervention with real-world hospital practice.</p><div class="flex flex-wrap gap-space-xs"><span class="inline-flex items-center px-space-sm py-space-xs rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-caption text-caption font-semibold">Hospital Rotation Active</span><span class="inline-flex items-center px-space-sm py-space-xs rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-caption text-caption font-semibold">IDA Accredited Trainee</span><span class="inline-flex items-center px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface-variant font-caption text-caption font-semibold">Clinical Hours Verified</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-primary">Internship Modules</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview" href="#">Cohort Dashboard Overview</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="assigned-k-sheets" href="#">Daily Patient K-Sheets</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="1-on-1-mentorship-sessions" href="#">Mentor Evaluation Schedule</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="case-report-submissions" href="#">ICU Case Submissions</a></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-primary">Clinical Logs &amp; Credentials</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="verified-certificates" href="#">Board Accreditation Status</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="assigned-k-sheets" href="#">Biochemical Chart Archive</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview" href="#">Rotation Log Guidelines</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="case-report-submissions" href="#">Faculty Case Sign-offs</a></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-primary">Mentor &amp; Ward Support</span><span class="font-body-sm text-body-sm text-on-surface-variant">Assigned Mentor: Dr. Sunita Rao, RD</span><span class="font-body-sm text-body-sm text-on-surface-variant">Ward Desk: Inpatient ICU &amp; Nephro Block</span><span class="font-body-sm text-body-sm text-on-surface-variant">Emergencies: clinical-hotline@dietmedacademy.org</span><a class="font-label-sm text-label-sm text-secondary font-semibold hover:underline mt-space-xs" data-path="1-on-1-mentorship-sessions" href="#">Request Unscheduled Slot →</a></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container/50 rounded-xl px-space-md py-space-sm"><span class="font-caption text-caption text-on-surface-variant">© 2024 DietMed Clinical Academy. Patient confidentiality protected under HIPAA &amp; Digital Health Ethics.</span><div class="flex items-center gap-space-md"><span class="font-caption text-caption text-on-surface-variant hover:text-on-surface cursor-pointer">Clinical Ethics Oath</span><span class="font-caption text-caption text-on-surface-variant hover:text-on-surface cursor-pointer">Patient Data Policy</span><span class="font-caption text-caption text-on-surface-variant hover:text-on-surface cursor-pointer">Intern Code of Conduct</span></div></div></div></footer></body></html>
