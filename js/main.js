@@ -1,6 +1,6 @@
 /**
  * Main Client Scripts for DietMed Clinical Academy
- * Handles Mobile Menu Toggle, Interactive FAQ Accordion, and Form Submission
+ * Handles Mobile Menu Toggle, Interactive FAQ Accordion, and Email Form Submission
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -74,18 +74,63 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 3. Form Submission Handler
-function handleFormSubmit(event) {
+// 3. Form Submission Handler - Sends details directly to reshnutriclinic@gmail.com
+async function handleFormSubmit(event) {
   event.preventDefault();
-  const banner = document.getElementById('form-success-banner');
   const form = document.getElementById('internship-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitText = document.getElementById('submit-text');
+  const submitIcon = document.getElementById('submit-icon');
+  const successBanner = document.getElementById('form-success-banner');
+  const errorBanner = document.getElementById('form-error-banner');
 
-  if (banner) {
-    banner.classList.remove('hidden');
-    banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  if (errorBanner) errorBanner.classList.add('hidden');
+
+  // Loading state
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    if (submitIcon) submitIcon.className = 'fa-solid fa-spinner fa-spin text-xs';
+    if (submitText) submitText.textContent = 'Submitting & Sending Email...';
   }
 
-  if (form) {
-    form.reset();
+  try {
+    const formData = new FormData(form);
+
+    const response = await fetch('https://formsubmit.co/ajax/reshnutriclinic@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (response.ok || result.success === "true" || result.success === true) {
+      if (successBanner) {
+        successBanner.classList.remove('hidden');
+        successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      form.reset();
+    } else {
+      throw new Error(result.message || 'Submission response error');
+    }
+  } catch (err) {
+    console.warn('AJAX submission failed or blocked; falling back to direct POST:', err);
+    // Fallback: Submit directly using standard browser POST to ensure the lead is never lost
+    if (form) {
+      form.submit();
+      return;
+    }
+    if (errorBanner) {
+      errorBanner.classList.remove('hidden');
+      errorBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      if (submitIcon) submitIcon.className = 'fa-solid fa-paper-plane text-xs';
+      if (submitText) submitText.textContent = 'Submit Application & Book Intake Call';
+    }
   }
 }

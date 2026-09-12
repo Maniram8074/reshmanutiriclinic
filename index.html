@@ -567,16 +567,36 @@
           <i class="fa-solid fa-circle-check text-sm"></i>
         </div>
         <div class="space-y-1">
-          <h4 class="text-sm font-extrabold text-emerald-900">Application Received Successfully!</h4>
+          <h4 class="text-sm font-extrabold text-emerald-900">Application Submitted &amp; Sent to Admissions!</h4>
           <p class="text-xs text-emerald-700 leading-relaxed">
-            Thank you for applying. Dt. Sk. Reshma's clinical intake admissions coordinator will review your academic qualifications and email/WhatsApp your 1-on-1 desk interview schedule within 24 hours.
+            Your registration details have been emailed directly to <strong class="text-emerald-900">reshnutriclinic@gmail.com</strong>. Dt. Sk. Reshma's clinical intake team will review your qualifications and contact you with your 1-on-1 desk interview schedule within 24 hours.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Application Form -->
-    <form id="internship-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+    <!-- Error Alert Card (Hidden by Default) -->
+    <div id="form-error-banner" class="hidden p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-3">
+      <i class="fa-solid fa-circle-exclamation text-rose-600 text-base shrink-0"></i>
+      <div>
+        <span class="font-bold block">Submission issue detected.</span>
+        <span>Please check your internet connection or email us directly at <a href="mailto:reshnutriclinic@gmail.com" class="underline font-bold">reshnutriclinic@gmail.com</a>.</span>
+      </div>
+    </div>
+
+    <!-- Application Form with Direct Email Integration -->
+    <form 
+      id="internship-form" 
+      action="https://formsubmit.co/reshnutriclinic@gmail.com" 
+      method="POST" 
+      class="space-y-4" 
+      onsubmit="handleFormSubmit(event)"
+    >
+      <!-- FormSubmit Configuration Fields -->
+      <input type="hidden" name="_subject" value="New 45-Day Clinical Internship Application - DietMed Academy" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+
       <!-- Row 1: Name & Email -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -584,7 +604,7 @@
           <input 
             type="text" 
             id="fullName" 
-            name="fullName" 
+            name="Applicant Name" 
             placeholder="e.g. Ananya Sharma" 
             class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
             required 
@@ -595,7 +615,7 @@
           <input 
             type="email" 
             id="email" 
-            name="email" 
+            name="Applicant Email" 
             placeholder="ananya.sharma@gmail.com" 
             class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
             required 
@@ -610,7 +630,7 @@
           <input 
             type="tel" 
             id="mobile" 
-            name="mobile" 
+            name="WhatsApp Number" 
             placeholder="+91 98765 43210" 
             class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
             required 
@@ -620,16 +640,16 @@
           <label for="qualification" class="block text-xs font-bold text-slate-700 mb-1">Highest Qualification / Background *</label>
           <select 
             id="qualification" 
-            name="qualification" 
+            name="Academic Qualification" 
             class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all bg-white" 
             required
           >
             <option value="" disabled selected>Select qualification</option>
-            <option value="bsc">B.Sc. Nutrition &amp; Dietetics (Final Year / Graduate)</option>
-            <option value="msc">M.Sc. Clinical Nutrition / Food Science</option>
-            <option value="pgdd">Post Graduate Diploma in Dietetics (PGDD)</option>
-            <option value="practicing">Practicing Dietitian / Career Switcher</option>
-            <option value="allied">MBBS / BAMS / Allied Healthcare Professional</option>
+            <option value="B.Sc. Nutrition & Dietetics">B.Sc. Nutrition &amp; Dietetics (Final Year / Graduate)</option>
+            <option value="M.Sc. Clinical Nutrition / Food Science">M.Sc. Clinical Nutrition / Food Science</option>
+            <option value="Post Graduate Diploma in Dietetics (PGDD)">Post Graduate Diploma in Dietetics (PGDD)</option>
+            <option value="Practicing Dietitian / Career Switcher">Practicing Dietitian / Career Switcher</option>
+            <option value="MBBS / BAMS / Allied Healthcare">MBBS / BAMS / Allied Healthcare Professional</option>
           </select>
         </div>
       </div>
@@ -639,14 +659,14 @@
         <label class="block text-xs font-bold text-slate-700 mb-2">Preferred 1-on-1 Private Desk Slot *</label>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <label class="flex items-center gap-2 p-3 bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 rounded-xl cursor-pointer transition-colors">
-            <input type="radio" name="meeting-slot" value="morning" checked class="accent-emerald-700 w-4 h-4" />
+            <input type="radio" name="Preferred Meeting Slot" value="Morning (09:30 AM - 01:00 PM IST)" checked class="accent-emerald-700 w-4 h-4" />
             <div class="text-xs">
               <span class="font-bold text-slate-800 block">Morning Slot</span>
               <span class="text-slate-500 text-[11px]">09:30 AM – 01:00 PM IST</span>
             </div>
           </label>
           <label class="flex items-center gap-2 p-3 bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 rounded-xl cursor-pointer transition-colors">
-            <input type="radio" name="meeting-slot" value="evening" class="accent-emerald-700 w-4 h-4" />
+            <input type="radio" name="Preferred Meeting Slot" value="Evening (05:30 PM - 09:00 PM IST)" class="accent-emerald-700 w-4 h-4" />
             <div class="text-xs">
               <span class="font-bold text-slate-800 block">Evening Slot</span>
               <span class="text-slate-500 text-[11px]">05:30 PM – 09:00 PM IST</span>
@@ -660,7 +680,7 @@
         <label for="sop" class="block text-xs font-bold text-slate-700 mb-1">Career Goal / Reason for Joining *</label>
         <textarea 
           id="sop" 
-          name="sop" 
+          name="Career Goal / SOP" 
           rows="3" 
           placeholder="e.g. Recently completed B.Sc. Nutrition. Seeking clinical ICU charting confidence and K-Sheet case training to pass hospital interview rounds." 
           class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all"
@@ -670,7 +690,7 @@
 
       <!-- Agreement Checkbox -->
       <div class="flex items-start gap-2 pt-1">
-        <input type="checkbox" id="commitment" required class="accent-emerald-700 w-4 h-4 mt-0.5" />
+        <input type="checkbox" id="commitment" name="Internship Commitment Confirmed" value="Yes" required class="accent-emerald-700 w-4 h-4 mt-0.5" />
         <label for="commitment" class="text-[11px] text-slate-500 leading-snug">
           I understand that this 45-day hospital internship requires regular submission of clinical patient case sheets and participating in live 1-on-1 viva defense.
         </label>
@@ -678,11 +698,12 @@
 
       <!-- Submit Button -->
       <button 
+        id="submit-btn"
         type="submit" 
-        class="w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-extrabold rounded-xl shadow-md hover:shadow-lg transition-all text-sm flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+        class="w-full py-4 bg-emerald-800 hover:bg-emerald-900 disabled:opacity-75 disabled:cursor-not-allowed text-white font-extrabold rounded-xl shadow-md hover:shadow-lg transition-all text-sm flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
       >
-        <i class="fa-solid fa-paper-plane text-xs"></i>
-        <span>Submit Application &amp; Book Intake Call</span>
+        <i id="submit-icon" class="fa-solid fa-paper-plane text-xs"></i>
+        <span id="submit-text">Submit Application &amp; Book Intake Call</span>
       </button>
     </form>
   </div>
@@ -803,7 +824,7 @@
       <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Admissions Directorate</div>
       <p class="text-[11px] text-slate-500">
         WhatsApp Desk: <span class="font-bold text-slate-700">+91 98765 43210</span><br />
-        Email: <span class="font-bold text-slate-700">intake@dietmedacademy.org</span><br />
+        Email: <a href="mailto:reshnutriclinic@gmail.com" class="font-bold text-slate-700 hover:text-emerald-800 transition-colors">reshnutriclinic@gmail.com</a><br />
         Location: Hyderabad, India
       </p>
       <div class="pt-2">
