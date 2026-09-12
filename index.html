@@ -548,164 +548,102 @@
 </section>
 
   <!-- [Chunk: sections/6-apply.html] -->
-<!-- 6. INTERNSHIP APPLICATION FORM (id="apply") -->
-<section id="apply" class="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
-  <div class="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-xl space-y-8">
-    <!-- Form Header -->
-    <div class="text-center space-y-2">
-      <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">Internship Application Form</span>
-      <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Register for the Upcoming 45-Day Internship Cohort</h2>
-      <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
-        Due to the direct 1-on-1 mentorship format and intensive bedside case reviews, intake is strictly capped at 15 interns per cohort.
-      </p>
-    </div>
+<!-- 6. INTERNSHIP APPLICATION FORM (id="apply") - GOOGLE FORM INTEGRATION -->
+<section id="apply" class="max-w-5xl mx-auto px-6 py-16 scroll-mt-24 space-y-8">
+  <!-- Section Header -->
+  <div class="text-center space-y-2">
+    <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">Internship Application &amp; Registration</span>
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">Register for the Upcoming 45-Day Internship Cohort</h2>
+    <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
+      Official candidate intake portal. All submissions are automatically timestamped and logged into our central admissions registry for re-checking and verification.
+    </p>
+  </div>
 
-    <!-- Success Confirmation Card (Hidden by Default) -->
-    <div id="form-success-banner" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 transition-all duration-300">
-      <div class="flex items-start gap-3">
-        <div class="w-8 h-8 rounded-full bg-emerald-700 text-white flex items-center justify-center shrink-0 mt-0.5">
-          <i class="fa-solid fa-circle-check text-sm"></i>
-        </div>
-        <div class="space-y-1">
-          <h4 class="text-sm font-extrabold text-emerald-900">Application Submitted &amp; Sent to Admissions!</h4>
-          <p class="text-xs text-emerald-700 leading-relaxed">
-            Your registration details have been emailed directly to <strong class="text-emerald-900">reshnutriclinic@gmail.com</strong>. Dt. Sk. Reshma's clinical intake team will review your qualifications and contact you with your 1-on-1 desk interview schedule within 24 hours.
-          </p>
-        </div>
+  <!-- Central Verification Benefits Strip -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-semibold text-slate-700">
+    <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-clock-rotate-left text-xs"></i>
+      </div>
+      <div>
+        <span class="font-bold text-slate-900 block text-[11px]">Automatic Timestamp</span>
+        <span class="text-[10px] text-slate-500">Every application logged with exact submission time</span>
       </div>
     </div>
 
-    <!-- Error Alert Card (Hidden by Default) -->
-    <div id="form-error-banner" class="hidden p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-3">
-      <i class="fa-solid fa-circle-exclamation text-rose-600 text-base shrink-0"></i>
+    <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-table-cells text-xs"></i>
+      </div>
       <div>
-        <span class="font-bold block">Submission issue detected.</span>
-        <span>Please check your internet connection or email us directly at <a href="mailto:reshnutriclinic@gmail.com" class="underline font-bold">reshnutriclinic@gmail.com</a>.</span>
+        <span class="font-bold text-slate-900 block text-[11px]">Single Central Registry</span>
+        <span class="text-[10px] text-slate-500">All student records saved in one sheet for easy verification</span>
       </div>
     </div>
 
-    <!-- Application Form with Direct Email Integration -->
-    <form 
-      id="internship-form" 
-      action="https://formsubmit.co/reshnutriclinic@gmail.com" 
-      method="POST" 
-      class="space-y-4" 
-      onsubmit="handleFormSubmit(event)"
-    >
-      <!-- FormSubmit Configuration Fields -->
-      <input type="hidden" name="_subject" value="New 45-Day Clinical Internship Application - DietMed Academy" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-
-      <!-- Row 1: Name & Email -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label for="fullName" class="block text-xs font-bold text-slate-700 mb-1">Full Legal Name *</label>
-          <input 
-            type="text" 
-            id="fullName" 
-            name="Applicant Name" 
-            placeholder="e.g. Ananya Sharma" 
-            class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
-            required 
-          />
-        </div>
-        <div>
-          <label for="email" class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="Applicant Email" 
-            placeholder="ananya.sharma@gmail.com" 
-            class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
-            required 
-          />
-        </div>
+    <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-bell text-xs"></i>
       </div>
-
-      <!-- Row 2: Phone & Qualification -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label for="mobile" class="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp Number *</label>
-          <input 
-            type="tel" 
-            id="mobile" 
-            name="WhatsApp Number" 
-            placeholder="+91 98765 43210" 
-            class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
-            required 
-          />
-        </div>
-        <div>
-          <label for="qualification" class="block text-xs font-bold text-slate-700 mb-1">Highest Qualification / Background *</label>
-          <select 
-            id="qualification" 
-            name="Academic Qualification" 
-            class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all bg-white" 
-            required
-          >
-            <option value="" disabled selected>Select qualification</option>
-            <option value="B.Sc. Nutrition & Dietetics">B.Sc. Nutrition &amp; Dietetics (Final Year / Graduate)</option>
-            <option value="M.Sc. Clinical Nutrition / Food Science">M.Sc. Clinical Nutrition / Food Science</option>
-            <option value="Post Graduate Diploma in Dietetics (PGDD)">Post Graduate Diploma in Dietetics (PGDD)</option>
-            <option value="Practicing Dietitian / Career Switcher">Practicing Dietitian / Career Switcher</option>
-            <option value="MBBS / BAMS / Allied Healthcare">MBBS / BAMS / Allied Healthcare Professional</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Preferred Meeting Slot -->
       <div>
-        <label class="block text-xs font-bold text-slate-700 mb-2">Preferred 1-on-1 Private Desk Slot *</label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <label class="flex items-center gap-2 p-3 bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 rounded-xl cursor-pointer transition-colors">
-            <input type="radio" name="Preferred Meeting Slot" value="Morning (09:30 AM - 01:00 PM IST)" checked class="accent-emerald-700 w-4 h-4" />
-            <div class="text-xs">
-              <span class="font-bold text-slate-800 block">Morning Slot</span>
-              <span class="text-slate-500 text-[11px]">09:30 AM – 01:00 PM IST</span>
-            </div>
-          </label>
-          <label class="flex items-center gap-2 p-3 bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 rounded-xl cursor-pointer transition-colors">
-            <input type="radio" name="Preferred Meeting Slot" value="Evening (05:30 PM - 09:00 PM IST)" class="accent-emerald-700 w-4 h-4" />
-            <div class="text-xs">
-              <span class="font-bold text-slate-800 block">Evening Slot</span>
-              <span class="text-slate-500 text-[11px]">05:30 PM – 09:00 PM IST</span>
-            </div>
-          </label>
+        <span class="font-bold text-slate-900 block text-[11px]">Instant Gmail Alert</span>
+        <span class="text-[10px] text-slate-500">Notification sent to reshnutriclinic@gmail.com</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Form Card Container -->
+  <div class="bg-white rounded-3xl p-4 sm:p-8 lg:p-10 border border-slate-200 shadow-xl space-y-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-800 flex items-center justify-center text-white text-base shadow">
+          <i class="fa-solid fa-clipboard-list"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-extrabold text-slate-900">DietMed Official Candidate Registration Form</h3>
+          <p class="text-[11px] text-slate-500">Admissions Desk • Intake Notifications: reshnutriclinic@gmail.com</p>
         </div>
       </div>
-
-      <!-- Statement of Purpose -->
-      <div>
-        <label for="sop" class="block text-xs font-bold text-slate-700 mb-1">Career Goal / Reason for Joining *</label>
-        <textarea 
-          id="sop" 
-          name="Career Goal / SOP" 
-          rows="3" 
-          placeholder="e.g. Recently completed B.Sc. Nutrition. Seeking clinical ICU charting confidence and K-Sheet case training to pass hospital interview rounds." 
-          class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all"
-          required
-        ></textarea>
-      </div>
-
-      <!-- Agreement Checkbox -->
-      <div class="flex items-start gap-2 pt-1">
-        <input type="checkbox" id="commitment" name="Internship Commitment Confirmed" value="Yes" required class="accent-emerald-700 w-4 h-4 mt-0.5" />
-        <label for="commitment" class="text-[11px] text-slate-500 leading-snug">
-          I understand that this 45-day hospital internship requires regular submission of clinical patient case sheets and participating in live 1-on-1 viva defense.
-        </label>
-      </div>
-
-      <!-- Submit Button -->
-      <button 
-        id="submit-btn"
-        type="submit" 
-        class="w-full py-4 bg-emerald-800 hover:bg-emerald-900 disabled:opacity-75 disabled:cursor-not-allowed text-white font-extrabold rounded-xl shadow-md hover:shadow-lg transition-all text-sm flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+      
+      <!-- Open in New Tab / External Link Button -->
+      <a 
+        id="google-form-external-link"
+        href="https://forms.gle/reshmanutriclinic" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 rounded-xl text-xs font-bold transition-colors border border-slate-200 self-start sm:self-auto"
       >
-        <i id="submit-icon" class="fa-solid fa-paper-plane text-xs"></i>
-        <span id="submit-text">Submit Application &amp; Book Intake Call</span>
-      </button>
-    </form>
+        <span>Open Form in New Tab</span>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+      </a>
+    </div>
+
+    <!-- Embedded Google Form Frame -->
+    <div class="relative w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+      <iframe 
+        id="google-form-iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfp_SAMPLE_FORM_ID/viewform?embedded=true" 
+        class="w-full min-h-[720px] sm:min-h-[800px] border-0" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+      >
+        Loading Registration Form…
+      </iframe>
+    </div>
+
+    <!-- Quick Help & Email Verification Note -->
+    <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-emerald-900">
+      <div class="flex items-start gap-2">
+        <i class="fa-solid fa-circle-info text-emerald-700 mt-0.5 shrink-0"></i>
+        <span>
+          <strong>Admissions Verification:</strong> Every student submission is permanently stored in your Google Sheets database with a verified timestamp.
+        </span>
+      </div>
+      <a href="mailto:reshnutriclinic@gmail.com" class="font-bold text-emerald-800 hover:underline shrink-0">
+        reshnutriclinic@gmail.com
+      </a>
+    </div>
   </div>
 </section>
 
