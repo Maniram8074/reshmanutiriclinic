@@ -1,0 +1,21 @@
+/* Custom Styles for DietMed Clinical Academy */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* FAQ Accordion Transitions */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out, opacity 0.25s ease-out;
+  opacity: 0;
+}
+
+.faq-answer.open {
+  max-height: 400px;
+  opacity: 1;
+}

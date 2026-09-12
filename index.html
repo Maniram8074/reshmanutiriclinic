@@ -40,892 +40,783 @@
       }
     };
   </script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    h1, h2, h3, .font-display {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease-out, opacity 0.25s ease-out;
-      opacity: 0;
-    }
-    .faq-answer.open {
-      max-height: 400px;
-      opacity: 1;
-    }
-  </style>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900">
 
-  <!-- ========================================================================= -->
-  <!-- 1. TOP NAVIGATION BAR (With Mobile Menu & Functional Internal Redirects)  -->
-  <!-- ========================================================================= -->
-  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      
-      <!-- Brand Logo & Academy Identity -->
-      <a href="#" class="flex items-center space-x-3 group">
-        <div class="w-11 h-11 rounded-xl bg-emerald-800 flex items-center justify-center text-white text-lg shadow-md group-hover:bg-emerald-700 transition-colors">
-          <i class="fa-solid fa-notes-medical"></i>
-        </div>
-        <div>
-          <span class="text-lg font-black text-slate-900 leading-tight block tracking-tight group-hover:text-emerald-800 transition-colors">DietMed Clinical Academy</span>
-          <span class="text-[10px] font-extrabold text-emerald-700 uppercase tracking-wider block">Department of Clinical Dietetics &amp; Nutrition</span>
-        </div>
+  <!-- [Chunk: sections/1-header.html] -->
+<!-- 1. TOP NAVIGATION BAR -->
+<header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+    
+    <!-- Brand Logo & Academy Title -->
+    <a href="#" class="flex items-center space-x-3 group">
+      <div class="w-11 h-11 rounded-xl bg-emerald-800 flex items-center justify-center text-white text-lg shadow-md group-hover:bg-emerald-700 transition-colors">
+        <i class="fa-solid fa-notes-medical"></i>
+      </div>
+      <div>
+        <span class="text-lg font-black text-slate-900 leading-tight block tracking-tight group-hover:text-emerald-800 transition-colors">DietMed Clinical Academy</span>
+        <span class="text-[10px] font-extrabold text-emerald-700 uppercase tracking-wider block">Department of Clinical Dietetics &amp; Nutrition</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+      <a href="#matrix" class="hover:text-emerald-800 transition-colors py-1">Internship Matrix</a>
+      <a href="#faculty" class="hover:text-emerald-800 transition-colors py-1">Faculty &amp; Leadership</a>
+      <a href="#ksheets" class="hover:text-emerald-800 transition-colors py-1">K-Sheets</a>
+      <a href="#faq" class="hover:text-emerald-800 transition-colors py-1">FAQ</a>
+    </nav>
+
+    <!-- Desktop CTA Button -->
+    <div class="hidden sm:flex items-center space-x-3">
+      <a href="#apply" class="px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold shadow-sm transition-all flex items-center gap-1.5 hover:shadow-md transform hover:-translate-y-0.5">
+        <i class="fa-solid fa-paper-plane text-[10px]"></i>
+        <span>Apply for 45-Day Internship</span>
       </a>
-
-      <!-- Functional Internal Redirect Links (Desktop) -->
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
-        <a href="#matrix" class="hover:text-emerald-800 transition-colors py-1">Internship Matrix</a>
-        <a href="#faculty" class="hover:text-emerald-800 transition-colors py-1">Faculty &amp; Leadership</a>
-        <a href="#ksheets" class="hover:text-emerald-800 transition-colors py-1">K-Sheets</a>
-        <a href="#faq" class="hover:text-emerald-800 transition-colors py-1">FAQ</a>
-      </nav>
-
-      <!-- Desktop Action CTA -->
-      <div class="hidden sm:flex items-center space-x-3">
-        <a href="#apply" class="px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold shadow-sm transition-all flex items-center gap-1.5 hover:shadow-md transform hover:-translate-y-0.5">
-          <i class="fa-solid fa-paper-plane text-[10px]"></i>
-          <span>Apply for 45-Day Internship</span>
-        </a>
-      </div>
-
-      <!-- Mobile Hamburger Toggle Button -->
-      <div class="flex items-center md:hidden">
-        <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" class="p-2.5 rounded-lg text-slate-600 hover:text-emerald-800 hover:bg-slate-100 transition-colors focus:outline-none">
-          <i id="menu-icon-open" class="fa-solid fa-bars text-xl"></i>
-          <i id="menu-icon-close" class="fa-solid fa-xmark text-xl hidden"></i>
-        </button>
-      </div>
     </div>
 
-    <!-- Mobile Dropdown Navigation Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-5 space-y-4 shadow-xl">
-      <nav class="flex flex-col space-y-3 text-sm font-bold text-slate-700">
-        <a href="#matrix" class="mobile-nav-link hover:text-emerald-800 py-2 border-b border-slate-100">Internship Matrix</a>
-        <a href="#faculty" class="mobile-nav-link hover:text-emerald-800 py-2 border-b border-slate-100">Faculty &amp; Leadership</a>
-        <a href="#ksheets" class="mobile-nav-link hover:text-emerald-800 py-2 border-b border-slate-100">K-Sheets</a>
-        <a href="#faq" class="mobile-nav-link hover:text-emerald-800 py-2 border-b border-slate-100">FAQ</a>
-      </nav>
-      <div class="pt-2">
-        <a href="#apply" class="mobile-nav-link w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold shadow transition-all flex items-center justify-center gap-2">
-          <i class="fa-solid fa-paper-plane text-[10px]"></i>
-          <span>Apply for 45-Day Internship</span>
-        </a>
-      </div>
+    <!-- Mobile Hamburger Toggle Button -->
+    <div class="flex items-center md:hidden">
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" class="p-2.5 rounded-lg text-slate-600 hover:text-emerald-800 hover:bg-slate-100 transition-colors focus:outline-none">
+        <i id="menu-icon-open" class="fa-solid fa-bars text-xl"></i>
+        <i id="menu-icon-close" class="fa-solid fa-xmark text-xl hidden"></i>
+      </button>
     </div>
-  </header>
+  </div>
+
+  <!-- Mobile Dropdown Navigation Drawer -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-5 space-y-4 shadow-xl">
+    <nav class="flex flex-col space-y-3 text-sm font-bold text-slate-700">
+      <a href="#matrix" class="mobile-nav-link hover:text-emerald-800 py-2 border-b border-slate-100">Internship Matrix</a>
+      <a href="#faculty" class="mobile-nav-link hover:text-emerald-800 py-2 border-b border-slate-100">Faculty &amp; Leadership</a>
+      <a href="#ksheets" class="mobile-nav-link hover:text-emerald-800 py-2 border-b border-slate-100">K-Sheets</a>
+      <a href="#faq" class="mobile-nav-link hover:text-emerald-800 py-2 border-b border-slate-100">FAQ</a>
+    </nav>
+    <div class="pt-2">
+      <a href="#apply" class="mobile-nav-link w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold shadow transition-all flex items-center justify-center gap-2">
+        <i class="fa-solid fa-paper-plane text-[10px]"></i>
+        <span>Apply for 45-Day Internship</span>
+      </a>
+    </div>
+  </div>
+</header>
 
   <main>
-    <!-- ========================================================================= -->
-    <!-- 2. HERO SECTION (With Redirect CTAs to Application & K-Sheets)            -->
-    <!-- ========================================================================= -->
-    <section class="relative overflow-hidden pt-12 pb-16 md:py-20 bg-gradient-to-b from-emerald-50/70 via-white to-slate-50">
-      <!-- Ambient Glow Decorator -->
-      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- [Chunk: sections/2-hero.html] -->
+<!-- 2. HERO SECTION -->
+<section class="relative overflow-hidden pt-12 pb-16 md:py-20 bg-gradient-to-b from-emerald-50/70 via-white to-slate-50">
+  <!-- Ambient Glow Decorator -->
+  <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="max-w-7xl mx-auto px-6 text-center space-y-6 relative z-10">
-        <!-- Live Cohort Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-extrabold rounded-full shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-          <span>NEXT INPATIENT COHORT STARTING MONDAY • Limited to 15 Verified Freshers</span>
+  <div class="max-w-7xl mx-auto px-6 text-center space-y-6 relative z-10">
+    <!-- Live Cohort Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-extrabold rounded-full shadow-sm">
+      <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+      <span>NEXT INPATIENT COHORT STARTING MONDAY • Limited to 15 Verified Freshers</span>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight max-w-4xl mx-auto leading-[1.15]">
+      Launch Your Clinical Dietitian Career with <span class="text-emerald-800 underline decoration-emerald-300 decoration-4 underline-offset-8">Real Hospital</span> Experience
+    </h1>
+
+    <!-- Subtitle & Value Proposition -->
+    <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+      45-Day Intensive 1-on-1 Online Internship for Freshers &amp; Nutrition Graduates. Direct clinical mentoring via private 1-on-1 sessions led by Dt. Sk. Reshma, Senior Clinical Dietitian &amp; HOD.
+    </p>
+
+    <!-- CTAs with Functional Anchor Links -->
+    <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
+      <!-- Redirects to Application Form -->
+      <a href="#apply" class="px-7 py-3.5 bg-emerald-800 hover:bg-emerald-900 text-white font-extrabold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 text-sm transform hover:-translate-y-0.5">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>Apply for 45-Day Internship</span>
+      </a>
+
+      <!-- Redirects to K-Sheets section -->
+      <a href="#ksheets" class="px-7 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-extrabold rounded-xl border border-slate-300 shadow-sm transition-all flex items-center gap-2 text-sm hover:border-emerald-600">
+        <i class="fa-solid fa-file-lines text-emerald-700"></i>
+        <span>View Live K-Sheet Sample</span>
+      </a>
+    </div>
+
+    <!-- 4 Pillars Trust Strip -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10 text-left">
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-calendar-check text-base"></i>
         </div>
-
-        <!-- Main Headline -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight max-w-4xl mx-auto leading-[1.15]">
-          Launch Your Clinical Dietitian Career with <span class="text-emerald-800 underline decoration-emerald-300 decoration-4 underline-offset-8">Real Hospital</span> Experience
-        </h1>
-
-        <!-- Subtitle & Value Proposition -->
-        <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          45-Day Intensive 1-on-1 Online Internship for Freshers &amp; Nutrition Graduates. Direct clinical mentoring via private 1-on-1 sessions led by Dt. Sk. Reshma, Senior Clinical Dietitian &amp; HOD.
-        </p>
-
-        <!-- CTAs with Functional Anchor Links -->
-        <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
-          <!-- Redirects to Application Form -->
-          <a href="#apply" class="px-7 py-3.5 bg-emerald-800 hover:bg-emerald-900 text-white font-extrabold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 text-sm transform hover:-translate-y-0.5">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Apply for 45-Day Internship</span>
-          </a>
-
-          <!-- Redirects to K-Sheets section -->
-          <a href="#ksheets" class="px-7 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-extrabold rounded-xl border border-slate-300 shadow-sm transition-all flex items-center gap-2 text-sm hover:border-emerald-600">
-            <i class="fa-solid fa-file-lines text-emerald-700"></i>
-            <span>View Live K-Sheet Sample</span>
-          </a>
-        </div>
-
-        <!-- 4 Pillars Trust Strip -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10 text-left">
-          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
-              <i class="fa-solid fa-calendar-check text-base"></i>
-            </div>
-            <div>
-              <div class="text-xs font-black text-slate-900">45 Days Live</div>
-              <div class="text-[11px] text-slate-500">Structured 3-phase matrix</div>
-            </div>
-          </div>
-
-          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
-              <i class="fa-solid fa-user-doctor text-base"></i>
-            </div>
-            <div>
-              <div class="text-xs font-black text-slate-900">1-on-1 Mentorship</div>
-              <div class="text-[11px] text-slate-500">Private desk clinical review</div>
-            </div>
-          </div>
-
-          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
-              <i class="fa-solid fa-clipboard-user text-base"></i>
-            </div>
-            <div>
-              <div class="text-xs font-black text-slate-900">Hands-on K-Sheets</div>
-              <div class="text-[11px] text-slate-500">ICU, Renal &amp; Cardiac wards</div>
-            </div>
-          </div>
-
-          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
-              <i class="fa-solid fa-qrcode text-base"></i>
-            </div>
-            <div>
-              <div class="text-xs font-black text-slate-900">QR Clinical ID</div>
-              <div class="text-[11px] text-slate-500">Hospital verifiable credential</div>
-            </div>
-          </div>
+        <div>
+          <div class="text-xs font-black text-slate-900">45 Days Live</div>
+          <div class="text-[11px] text-slate-500">Structured 3-phase matrix</div>
         </div>
       </div>
-    </section>
 
-    <!-- ========================================================================= -->
-    <!-- 3. THE 45-DAY HOSPITAL TRANSITION MATRIX (id="matrix")                    -->
-    <!-- ========================================================================= -->
-    <section id="matrix" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24 space-y-10">
-      <div class="text-center space-y-2">
-        <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-wider block">Inpatient Clinical Syllabus</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">The 45-Day Hospital Transition Matrix</h2>
-        <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
-          Engineered exclusively to turn fresh B.Sc./M.Sc. Dietetics and Food Science graduates into hospital-ready practitioners capable of clinical rounds on Day 1.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Phase 1 Card -->
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-extrabold bg-slate-100 text-slate-700 px-2.5 py-1 rounded tracking-wide">PHASE 01 • DAYS 1-15</span>
-              <span class="text-xs font-bold text-emerald-700">Module 101-104</span>
-            </div>
-            <h3 class="text-lg font-extrabold text-slate-900 leading-snug">Clinical Nutrition Foundations &amp; Ward Calculations</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">Master core hospital bedside diagnostic protocols, decipher medical jargon, and compute baseline nutritional requirements.</p>
-            <ul class="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>ICD-10 medical terminology, vitals interpretation &amp; lab sheet decoding</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>BMR, TEE, Mifflin-St Jeor vs. Harris-Benedict stress adjustment factors</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Anthropometric triage (MAC, Calf Circumference, TSF, Fluid correction)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Inpatient Diet Ordering Systems (NBM, Clear Liquid, Soft, Full Fluid)</span>
-              </li>
-            </ul>
-          </div>
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-semibold">
-            <span>Milestone Checkpoint</span>
-            <span class="text-emerald-800 font-bold">Assessment Drill #1</span>
-          </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-user-doctor text-base"></i>
         </div>
-
-        <!-- Phase 2 Card -->
-        <div class="bg-white rounded-2xl p-6 border-2 border-emerald-700 shadow-md space-y-4 flex flex-col justify-between relative">
-          <div class="absolute -top-3 right-6 bg-emerald-800 text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow-sm">
-            Core Clinical
-          </div>
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-extrabold bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded tracking-wide">PHASE 02 • DAYS 16-30</span>
-              <span class="text-xs font-bold text-emerald-700">Core Inpatient</span>
-            </div>
-            <h3 class="text-lg font-extrabold text-slate-900 leading-snug">Therapeutic Diets &amp; Disease-Specific Case Studies</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">Deep-dive into multi-morbid inpatient care with scheduled 1-on-1 mentor reviews of customized therapeutic formulations.</p>
-            <ul class="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Renal Protocol: Stage 3-5 CKD, Pre-dialysis vs Hemodialysis phosphorus/potassium</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Diabetic Emergencies: DKA recovery, sliding-scale insulin &amp; glycemic load</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Cardiovascular &amp; Hepatic Encephalopathy (Sodium, fluid titration)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Enteral Tube Feeds (NG/PEG formula rates, osmolarity &amp; refeeding risk)</span>
-              </li>
-            </ul>
-          </div>
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-800 font-bold bg-emerald-50/60 p-2.5 rounded-lg">
-            <span>1-on-1 Mentor Desk</span>
-            <span><i class="fa-solid fa-headset mr-1"></i> Two 40-Min Private Reviews</span>
-          </div>
-        </div>
-
-        <!-- Phase 3 Card -->
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-extrabold bg-slate-100 text-slate-700 px-2.5 py-1 rounded tracking-wide">PHASE 03 • DAYS 31-45</span>
-              <span class="text-xs font-bold text-emerald-700">Capstone &amp; Viva</span>
-            </div>
-            <h3 class="text-lg font-extrabold text-slate-900 leading-snug">The K-Sheet Capstone Project &amp; Final Clinical Viva</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">Simulate actual senior dietitian hospital duties. Review unredacted patient charts, defend recommendations, and earn credentials.</p>
-            <ul class="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Complete formulation of 4 live hospital K-Sheets (ICU, Renal, Pediatric, Oncology)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Clinical Nitrogen Balance tests &amp; drug-nutrient clash evaluations</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Live 1-on-1 Viva Defense with Dt. Sk. Reshma simulating hospital consultant interviews</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-                <span>Issuance of verifiable Certificate of Clinical Internship with QR Registry ID</span>
-              </li>
-            </ul>
-          </div>
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-semibold">
-            <span>Exit Deliverable</span>
-            <span class="text-emerald-800 font-bold">Official Hospital Portfolio</span>
-          </div>
+        <div>
+          <div class="text-xs font-black text-slate-900">1-on-1 Mentorship</div>
+          <div class="text-[11px] text-slate-500">Private desk clinical review</div>
         </div>
       </div>
-    </section>
 
-    <!-- ========================================================================= -->
-    <!-- 4. FACULTY & LEADERSHIP SPOTLIGHT (id="faculty")                         -->
-    <!-- ========================================================================= -->
-    <section id="faculty" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24 space-y-8">
-      <div class="text-center space-y-2">
-        <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-wider block">Academic Leadership &amp; Mentorship</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Faculty &amp; Leadership</h2>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
-          Learn directly under an active Senior Clinical Dietitian, Department Head, and Healthcare Entrepreneur.
-        </p>
-      </div>
-
-      <div class="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        <!-- Faculty Image Column -->
-        <div class="lg:col-span-5">
-          <div class="relative rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto bg-slate-100 border border-slate-200 shadow-md group">
-            <img 
-              src="assets/reshma-profile.jpg" 
-              alt="Dt. Sk. Reshma - Senior Clinical Dietitian &amp; HOD" 
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" 
-            />
-            <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-sm flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping"></span>
-                <span class="text-xs font-bold text-slate-800">Senior Clinical Dietitian &amp; HOD</span>
-              </div>
-              <span class="text-[11px] font-semibold text-emerald-700">PEPTAQUEST Winner</span>
-            </div>
-          </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-clipboard-user text-base"></i>
         </div>
-
-        <!-- Faculty Details & Credentials -->
-        <div class="lg:col-span-7 space-y-5">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-800 text-xs font-extrabold rounded-md border border-emerald-200">
-              <i class="fa-solid fa-crown text-[11px] text-amber-600"></i> Course Head &amp; Entrepreneur
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-md">
-              <i class="fa-solid fa-user-check text-[11px] text-emerald-700"></i> Direct 1-on-1 Mentor
-            </span>
-          </div>
-
-          <div>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">Dt. Sk. Reshma</h2>
-            <p class="text-sm sm:text-base font-bold text-emerald-800 mt-1">
-              Senior Clinical Dietitian &amp; HOD Department of Dietetics • Program Director &amp; Entrepreneur
-            </p>
-          </div>
-
-          <!-- Credential Tags -->
-          <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
-            <span class="px-2.5 py-1 bg-slate-100 rounded-md flex items-center gap-1.5">
-              <i class="fa-solid fa-building-columns text-emerald-700"></i> IDA - Life Member (Indian Dietetic Association)
-            </span>
-            <span class="px-2.5 py-1 bg-slate-100 rounded-md flex items-center gap-1.5">
-              <i class="fa-solid fa-award text-emerald-700"></i> FSSAI &amp; IAPEN Certified
-            </span>
-            <span class="px-2.5 py-1 bg-slate-100 rounded-md flex items-center gap-1.5">
-              <i class="fa-solid fa-trophy text-amber-600"></i> PEPTAQUEST Scientific Symposium Award Winner
-            </span>
-            <span class="px-2.5 py-1 bg-slate-100 rounded-md flex items-center gap-1.5">
-              <i class="fa-solid fa-hospital-user text-emerald-700"></i> HOD Department of Dietetics
-            </span>
-          </div>
-
-          <!-- Direct Quote from Dt. Sk. Reshma -->
-          <blockquote class="text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50 border-l-4 border-emerald-700 p-4 rounded-r-xl italic">
-            “In university dietetics programs, students memorize calorie formulas on chalkboard exams. But when you walk into an ICU with a critically septic patient on mechanical ventilation with rising creatinine, textbooks alone cannot save that life. As an active Head of Department and healthcare entrepreneur, I designed this 45-day internship to bridge that exact gap. In our private 1-on-1 desk sessions, I personally train you on real patient hospital K-Sheets until you calculate clinical nutrition prescriptions with absolute diagnostic conviction.”
-          </blockquote>
-
-          <!-- Areas of Clinical Expertise Badges -->
-          <div class="space-y-1.5">
-            <span class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">Specialized Clinical Competencies</span>
-            <div class="flex flex-wrap gap-1.5 text-[11px] font-medium text-slate-700">
-              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Diabetes Management (Type 1, 2, GDM)</span>
-              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Cardiac &amp; Renal Diet (CKD 3-5, Dialysis)</span>
-              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">ICU Enteral &amp; Parenteral Feeds</span>
-              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Gastrointestinal &amp; Liver Disorders</span>
-              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Weight &amp; PCOS / Hormonal Health</span>
-              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Pediatric &amp; Geriatric Nutrition</span>
-            </div>
-          </div>
-
-          <!-- Impact Metrics -->
-          <div class="pt-2 grid grid-cols-3 gap-3 sm:gap-4 text-xs font-bold text-slate-700">
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center sm:text-left">
-              <div class="text-xl sm:text-2xl font-black text-emerald-800">1,800+</div>
-              <div class="text-[10px] text-slate-500 uppercase mt-0.5">Graduates Placed</div>
-            </div>
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center sm:text-left">
-              <div class="text-xl sm:text-2xl font-black text-emerald-800">100%</div>
-              <div class="text-[10px] text-slate-500 uppercase mt-0.5">Direct 1-on-1 Desk</div>
-            </div>
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center sm:text-left">
-              <div class="text-xl sm:text-2xl font-black text-emerald-800">4.9 / 5</div>
-              <div class="text-[10px] text-slate-500 uppercase mt-0.5">Clinical Rating</div>
-            </div>
-          </div>
+        <div>
+          <div class="text-xs font-black text-slate-900">Hands-on K-Sheets</div>
+          <div class="text-[11px] text-slate-500">ICU, Renal &amp; Cardiac wards</div>
         </div>
       </div>
-    </section>
 
-    <!-- ========================================================================= -->
-    <!-- 5. K-SHEET CLINICAL ARTIFACTS SHOWCASE (id="ksheets")                     -->
-    <!-- ========================================================================= -->
-    <section id="ksheets" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24 space-y-8">
-      <div class="text-center space-y-2">
-        <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-wider block">Real Bedside Patient Artifacts</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Work Directly on Clinical K-Sheets</h2>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
-          A "K-Sheet" (Kardex Clinical Assessment Sheet) is the gold-standard hospital document dietitians use in hospital wards. Review the authentic sample case below:
-        </p>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-qrcode text-base"></i>
+        </div>
+        <div>
+          <div class="text-xs font-black text-slate-900">QR Clinical ID</div>
+          <div class="text-[11px] text-slate-500">Hospital verifiable credential</div>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- K-Sheet Blueprint Viewer -->
-      <div class="bg-white rounded-3xl p-6 lg:p-8 border border-slate-200 shadow-md space-y-6">
-        <!-- Top File Bar -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-3">
-          <div class="flex items-center gap-3">
-            <span class="px-3 py-1.5 bg-emerald-800 text-white font-mono text-xs font-bold rounded-lg shadow-sm">K-45</span>
-            <div>
-              <h3 class="text-sm font-extrabold text-slate-900 tracking-tight">DIETMED CLINICAL AUDIT SHEET #DM-8841</h3>
-              <p class="text-[11px] text-slate-500">De-identified Patient File • Nephrology / Cardiac Ward 3B</p>
-            </div>
-          </div>
+  <!-- [Chunk: sections/3-matrix.html] -->
+<!-- 3. THE 45-DAY HOSPITAL TRANSITION MATRIX (id="matrix") -->
+<section id="matrix" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24 space-y-10">
+  <div class="text-center space-y-2">
+    <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-wider block">Inpatient Clinical Syllabus</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">The 45-Day Hospital Transition Matrix</h2>
+    <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
+      Engineered exclusively to turn fresh B.Sc./M.Sc. Dietetics and Food Science graduates into hospital-ready practitioners capable of clinical rounds on Day 1.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Phase 1 Card -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-4 flex flex-col justify-between">
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] font-extrabold bg-slate-100 text-slate-700 px-2.5 py-1 rounded tracking-wide">PHASE 01 • DAYS 1-15</span>
+          <span class="text-xs font-bold text-emerald-700">Module 101-104</span>
+        </div>
+        <h3 class="text-lg font-extrabold text-slate-900 leading-snug">Clinical Nutrition Foundations &amp; Ward Calculations</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">Master core hospital bedside diagnostic protocols, decipher medical jargon, and compute baseline nutritional requirements.</p>
+        <ul class="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>ICD-10 medical terminology, vitals interpretation &amp; lab sheet decoding</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>BMR, TEE, Mifflin-St Jeor vs. Harris-Benedict stress adjustment factors</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Anthropometric triage (MAC, Calf Circumference, TSF, Fluid correction)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Inpatient Diet Ordering Systems (NBM, Clear Liquid, Soft, Full Fluid)</span>
+          </li>
+        </ul>
+      </div>
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-semibold">
+        <span>Milestone Checkpoint</span>
+        <span class="text-emerald-800 font-bold">Assessment Drill #1</span>
+      </div>
+    </div>
+
+    <!-- Phase 2 Card -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-emerald-700 shadow-md space-y-4 flex flex-col justify-between relative">
+      <div class="absolute -top-3 right-6 bg-emerald-800 text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow-sm">
+        Core Clinical
+      </div>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] font-extrabold bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded tracking-wide">PHASE 02 • DAYS 16-30</span>
+          <span class="text-xs font-bold text-emerald-700">Core Inpatient</span>
+        </div>
+        <h3 class="text-lg font-extrabold text-slate-900 leading-snug">Therapeutic Diets &amp; Disease-Specific Case Studies</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">Deep-dive into multi-morbid inpatient care with scheduled 1-on-1 mentor reviews of customized therapeutic formulations.</p>
+        <ul class="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Renal Protocol: Stage 3-5 CKD, Pre-dialysis vs Hemodialysis phosphorus/potassium</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Diabetic Emergencies: DKA recovery, sliding-scale insulin &amp; glycemic load</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Cardiovascular &amp; Hepatic Encephalopathy (Sodium, fluid titration)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Enteral Tube Feeds (NG/PEG formula rates, osmolarity &amp; refeeding risk)</span>
+          </li>
+        </ul>
+      </div>
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-800 font-bold bg-emerald-50/60 p-2.5 rounded-lg">
+        <span>1-on-1 Mentor Desk</span>
+        <span><i class="fa-solid fa-headset mr-1"></i> Two 40-Min Private Reviews</span>
+      </div>
+    </div>
+
+    <!-- Phase 3 Card -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-4 flex flex-col justify-between">
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] font-extrabold bg-slate-100 text-slate-700 px-2.5 py-1 rounded tracking-wide">PHASE 03 • DAYS 31-45</span>
+          <span class="text-xs font-bold text-emerald-700">Capstone &amp; Viva</span>
+        </div>
+        <h3 class="text-lg font-extrabold text-slate-900 leading-snug">The K-Sheet Capstone Project &amp; Final Clinical Viva</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">Simulate actual senior dietitian hospital duties. Review unredacted patient charts, defend recommendations, and earn credentials.</p>
+        <ul class="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Complete formulation of 4 live hospital K-Sheets (ICU, Renal, Pediatric, Oncology)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Clinical Nitrogen Balance tests &amp; drug-nutrient clash evaluations</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Live 1-on-1 Viva Defense with Dt. Sk. Reshma simulating hospital consultant interviews</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-check text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+            <span>Issuance of verifiable Certificate of Clinical Internship with QR Registry ID</span>
+          </li>
+        </ul>
+      </div>
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-semibold">
+        <span>Exit Deliverable</span>
+        <span class="text-emerald-800 font-bold">Official Hospital Portfolio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- [Chunk: sections/4-faculty.html] -->
+<!-- 4. FACULTY & LEADERSHIP SPOTLIGHT (id="faculty") -->
+<section id="faculty" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24 space-y-8">
+  <div class="text-center space-y-2">
+    <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-wider block">Academic Leadership &amp; Mentorship</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Faculty &amp; Leadership</h2>
+    <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
+      Learn directly under an active Senior Clinical Dietitian, Department Head, and Healthcare Entrepreneur.
+    </p>
+  </div>
+
+  <div class="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+    <!-- Faculty Image Column with Dt. Sk. Reshma's Photo -->
+    <div class="lg:col-span-5">
+      <div class="relative rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto bg-slate-100 border border-slate-200 shadow-md group">
+        <img 
+          src="assets/reshma-profile.jpg" 
+          alt="Dt. Sk. Reshma - Senior Clinical Dietitian &amp; HOD" 
+          class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" 
+        />
+        <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-sm flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <span class="text-[10px] font-bold bg-rose-50 text-rose-700 px-3 py-1 rounded-full border border-rose-200 flex items-center gap-1">
-              <i class="fa-solid fa-triangle-exclamation"></i> HIGH NUTRITIONAL RISK (NRS-2002: 4)
-            </span>
-            <span class="text-[10px] font-bold bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-full border border-emerald-200">
-              INTERN CASE #04
-            </span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping"></span>
+            <span class="text-xs font-bold text-slate-800">Senior Clinical Dietitian &amp; HOD</span>
           </div>
-        </div>
-
-        <!-- 3-Column Diagnostic Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
-          <!-- Box 1: Anthropometrics -->
-          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
-            <div class="font-bold text-slate-900 uppercase font-sans text-[11px] text-emerald-800 flex items-center justify-between">
-              <span>Anthropometrics</span>
-              <i class="fa-solid fa-weight-scale font-normal"></i>
-            </div>
-            <div class="flex justify-between border-b border-slate-200/70 pb-1">
-              <span class="text-slate-500">Age / Gender:</span>
-              <strong class="text-slate-800">58 Y / Male</strong>
-            </div>
-            <div class="flex justify-between border-b border-slate-200/70 pb-1">
-              <span class="text-slate-500">Actual Weight:</span>
-              <strong class="text-slate-800">74.2 kg</strong>
-            </div>
-            <div class="flex justify-between border-b border-slate-200/70 pb-1">
-              <span class="text-slate-500">Edema-Free IBW:</span>
-              <strong class="text-emerald-700 font-black">66.5 kg</strong>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-500">BMI:</span>
-              <strong class="text-slate-800">26.8 kg/m²</strong>
-            </div>
-          </div>
-
-          <!-- Box 2: Biochemical Profile -->
-          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
-            <div class="font-bold text-slate-900 uppercase font-sans text-[11px] text-emerald-800 flex items-center justify-between">
-              <span>Biochemical Profile</span>
-              <i class="fa-solid fa-vial font-normal"></i>
-            </div>
-            <div class="flex justify-between border-b border-slate-200/70 pb-1">
-              <span class="text-slate-500">Serum Creatinine:</span>
-              <strong class="text-rose-600 font-bold">3.4 mg/dL (High)</strong>
-            </div>
-            <div class="flex justify-between border-b border-slate-200/70 pb-1">
-              <span class="text-slate-500">Blood Urea Nitrogen:</span>
-              <strong class="text-rose-600 font-bold">48 mg/dL (High)</strong>
-            </div>
-            <div class="flex justify-between border-b border-slate-200/70 pb-1">
-              <span class="text-slate-500">Serum Albumin:</span>
-              <strong class="text-rose-600 font-bold">2.7 g/dL (Low)</strong>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-500">Serum Potassium:</span>
-              <strong class="text-amber-600 font-bold">5.2 mEq/L (Border)</strong>
-            </div>
-          </div>
-
-          <!-- Box 3: Dietetic RX Target -->
-          <div class="p-4 bg-emerald-950 text-white rounded-2xl shadow-inner space-y-2">
-            <div class="font-bold uppercase font-sans text-[11px] text-emerald-400 flex items-center justify-between">
-              <span>Dietetic RX Target</span>
-              <i class="fa-solid fa-utensils font-normal"></i>
-            </div>
-            <div class="flex justify-between border-b border-emerald-800/80 pb-1">
-              <span class="text-emerald-200/70">Energy Target:</span>
-              <strong class="text-white">1,900 kcal (30kcal/kg)</strong>
-            </div>
-            <div class="flex justify-between border-b border-emerald-800/80 pb-1">
-              <span class="text-emerald-200/70">Protein Cap:</span>
-              <strong class="text-emerald-300 font-bold">0.65 g/kg HBV (43g)</strong>
-            </div>
-            <div class="flex justify-between border-b border-emerald-800/80 pb-1">
-              <span class="text-emerald-200/70">Fluid Allowance:</span>
-              <strong class="text-white">1,000 mL + UO</strong>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-emerald-200/70">Sodium / Phos:</span>
-              <strong class="text-emerald-300">&lt;2g Na / &lt;800mg Phos</strong>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4-Step Credential Progression Path -->
-        <div class="pt-4 border-t border-slate-100">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-              <div class="text-xs font-black text-slate-400 font-mono">STEP 01</div>
-              <div class="text-xs font-bold text-slate-900">Submit Case Sheet</div>
-              <p class="text-[11px] text-slate-500">Download live inpatient labs and calculate exchange meal matrix.</p>
-            </div>
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-              <div class="text-xs font-black text-slate-400 font-mono">STEP 02</div>
-              <div class="text-xs font-bold text-slate-900">Faculty Peer Audit</div>
-              <p class="text-[11px] text-slate-500">Dt. Sk. Reshma reviews your protein titration &amp; drug-nutrient interactions.</p>
-            </div>
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-              <div class="text-xs font-black text-slate-400 font-mono">STEP 03</div>
-              <div class="text-xs font-bold text-slate-900">1-on-1 Viva Defense</div>
-              <p class="text-[11px] text-slate-500">Join screen-share to defend clinical rationale and answer rounds queries.</p>
-            </div>
-            <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 space-y-1">
-              <div class="text-xs font-black text-emerald-700 font-mono">STEP 04</div>
-              <div class="text-xs font-bold text-emerald-900">QR Clinical Credential</div>
-              <p class="text-[11px] text-emerald-700">Tamper-proof verifiable certificate mapped to our hospital registry.</p>
-            </div>
-          </div>
+          <span class="text-[11px] font-semibold text-emerald-700">PEPTAQUEST Winner</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- ========================================================================= -->
-    <!-- 6. INTERNSHIP APPLICATION FORM (id="apply")                              -->
-    <!-- ========================================================================= -->
-    <section id="apply" class="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
-      <div class="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-xl space-y-8">
-        <!-- Form Header -->
-        <div class="text-center space-y-2">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">Internship Application Form</span>
-          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Register for the Upcoming 45-Day Internship Cohort</h2>
-          <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
-            Due to the direct 1-on-1 mentorship format and intensive bedside case reviews, intake is strictly capped at 15 interns per cohort.
+    <!-- Faculty Details & Credentials -->
+    <div class="lg:col-span-7 space-y-5">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-800 text-xs font-extrabold rounded-md border border-emerald-200">
+          <i class="fa-solid fa-crown text-[11px] text-amber-600"></i> Course Head &amp; Entrepreneur
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-md">
+          <i class="fa-solid fa-user-check text-[11px] text-emerald-700"></i> Direct 1-on-1 Mentor
+        </span>
+      </div>
+
+      <div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">Dt. Sk. Reshma</h2>
+        <p class="text-sm sm:text-base font-bold text-emerald-800 mt-1">
+          Senior Clinical Dietitian &amp; HOD Department of Dietetics • Program Director &amp; Entrepreneur
+        </p>
+      </div>
+
+      <!-- Credential Tags -->
+      <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
+        <span class="px-2.5 py-1 bg-slate-100 rounded-md flex items-center gap-1.5">
+          <i class="fa-solid fa-building-columns text-emerald-700"></i> IDA - Life Member (Indian Dietetic Association)
+        </span>
+        <span class="px-2.5 py-1 bg-slate-100 rounded-md flex items-center gap-1.5">
+          <i class="fa-solid fa-award text-emerald-700"></i> FSSAI &amp; IAPEN Certified
+        </span>
+        <span class="px-2.5 py-1 bg-slate-100 rounded-md flex items-center gap-1.5">
+          <i class="fa-solid fa-trophy text-amber-600"></i> PEPTAQUEST Scientific Symposium Award Winner
+        </span>
+        <span class="px-2.5 py-1 bg-slate-100 rounded-md flex items-center gap-1.5">
+          <i class="fa-solid fa-hospital-user text-emerald-700"></i> HOD Department of Dietetics
+        </span>
+      </div>
+
+      <!-- Direct Quote from Dt. Sk. Reshma -->
+      <blockquote class="text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50 border-l-4 border-emerald-700 p-4 rounded-r-xl italic">
+        “In university dietetics programs, students memorize calorie formulas on chalkboard exams. But when you walk into an ICU with a critically septic patient on mechanical ventilation with rising creatinine, textbooks alone cannot save that life. As an active Head of Department and healthcare entrepreneur, I designed this 45-day internship to bridge that exact gap. In our private 1-on-1 desk sessions, I personally train you on real patient hospital K-Sheets until you calculate clinical nutrition prescriptions with absolute diagnostic conviction.”
+      </blockquote>
+
+      <!-- Areas of Clinical Expertise Badges -->
+      <div class="space-y-1.5">
+        <span class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">Specialized Clinical Competencies</span>
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-medium text-slate-700">
+          <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Diabetes Management (Type 1, 2, GDM)</span>
+          <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Cardiac &amp; Renal Diet (CKD 3-5, Dialysis)</span>
+          <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">ICU Enteral &amp; Parenteral Feeds</span>
+          <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Gastrointestinal &amp; Liver Disorders</span>
+          <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Weight &amp; PCOS / Hormonal Health</span>
+          <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200/60">Pediatric &amp; Geriatric Nutrition</span>
+        </div>
+      </div>
+
+      <!-- Impact Metrics -->
+      <div class="pt-2 grid grid-cols-3 gap-3 sm:gap-4 text-xs font-bold text-slate-700">
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center sm:text-left">
+          <div class="text-xl sm:text-2xl font-black text-emerald-800">1,800+</div>
+          <div class="text-[10px] text-slate-500 uppercase mt-0.5">Graduates Placed</div>
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center sm:text-left">
+          <div class="text-xl sm:text-2xl font-black text-emerald-800">100%</div>
+          <div class="text-[10px] text-slate-500 uppercase mt-0.5">Direct 1-on-1 Desk</div>
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center sm:text-left">
+          <div class="text-xl sm:text-2xl font-black text-emerald-800">4.9 / 5</div>
+          <div class="text-[10px] text-slate-500 uppercase mt-0.5">Clinical Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- [Chunk: sections/5-ksheets.html] -->
+<!-- 5. K-SHEET CLINICAL ARTIFACTS SHOWCASE (id="ksheets") -->
+<section id="ksheets" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24 space-y-8">
+  <div class="text-center space-y-2">
+    <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-wider block">Real Bedside Patient Artifacts</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Work Directly on Clinical K-Sheets</h2>
+    <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
+      A "K-Sheet" (Kardex Clinical Assessment Sheet) is the gold-standard hospital document dietitians use in hospital wards. Review the authentic sample case below:
+    </p>
+  </div>
+
+  <!-- K-Sheet Blueprint Viewer -->
+  <div class="bg-white rounded-3xl p-6 lg:p-8 border border-slate-200 shadow-md space-y-6">
+    <!-- Top File Bar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-3">
+      <div class="flex items-center gap-3">
+        <span class="px-3 py-1.5 bg-emerald-800 text-white font-mono text-xs font-bold rounded-lg shadow-sm">K-45</span>
+        <div>
+          <h3 class="text-sm font-extrabold text-slate-900 tracking-tight">DIETMED CLINICAL AUDIT SHEET #DM-8841</h3>
+          <p class="text-[11px] text-slate-500">De-identified Patient File • Nephrology / Cardiac Ward 3B</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-[10px] font-bold bg-rose-50 text-rose-700 px-3 py-1 rounded-full border border-rose-200 flex items-center gap-1">
+          <i class="fa-solid fa-triangle-exclamation"></i> HIGH NUTRITIONAL RISK (NRS-2002: 4)
+        </span>
+        <span class="text-[10px] font-bold bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-full border border-emerald-200">
+          INTERN CASE #04
+        </span>
+      </div>
+    </div>
+
+    <!-- 3-Column Diagnostic Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
+      <!-- Box 1: Anthropometrics -->
+      <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+        <div class="font-bold text-slate-900 uppercase font-sans text-[11px] text-emerald-800 flex items-center justify-between">
+          <span>Anthropometrics</span>
+          <i class="fa-solid fa-weight-scale font-normal"></i>
+        </div>
+        <div class="flex justify-between border-b border-slate-200/70 pb-1">
+          <span class="text-slate-500">Age / Gender:</span>
+          <strong class="text-slate-800">58 Y / Male</strong>
+        </div>
+        <div class="flex justify-between border-b border-slate-200/70 pb-1">
+          <span class="text-slate-500">Actual Weight:</span>
+          <strong class="text-slate-800">74.2 kg</strong>
+        </div>
+        <div class="flex justify-between border-b border-slate-200/70 pb-1">
+          <span class="text-slate-500">Edema-Free IBW:</span>
+          <strong class="text-emerald-700 font-black">66.5 kg</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">BMI:</span>
+          <strong class="text-slate-800">26.8 kg/m²</strong>
+        </div>
+      </div>
+
+      <!-- Box 2: Biochemical Profile -->
+      <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+        <div class="font-bold text-slate-900 uppercase font-sans text-[11px] text-emerald-800 flex items-center justify-between">
+          <span>Biochemical Profile</span>
+          <i class="fa-solid fa-vial font-normal"></i>
+        </div>
+        <div class="flex justify-between border-b border-slate-200/70 pb-1">
+          <span class="text-slate-500">Serum Creatinine:</span>
+          <strong class="text-rose-600 font-bold">3.4 mg/dL (High)</strong>
+        </div>
+        <div class="flex justify-between border-b border-slate-200/70 pb-1">
+          <span class="text-slate-500">Blood Urea Nitrogen:</span>
+          <strong class="text-rose-600 font-bold">48 mg/dL (High)</strong>
+        </div>
+        <div class="flex justify-between border-b border-slate-200/70 pb-1">
+          <span class="text-slate-500">Serum Albumin:</span>
+          <strong class="text-rose-600 font-bold">2.7 g/dL (Low)</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">Serum Potassium:</span>
+          <strong class="text-amber-600 font-bold">5.2 mEq/L (Border)</strong>
+        </div>
+      </div>
+
+      <!-- Box 3: Dietetic RX Target -->
+      <div class="p-4 bg-emerald-950 text-white rounded-2xl shadow-inner space-y-2">
+        <div class="font-bold uppercase font-sans text-[11px] text-emerald-400 flex items-center justify-between">
+          <span>Dietetic RX Target</span>
+          <i class="fa-solid fa-utensils font-normal"></i>
+        </div>
+        <div class="flex justify-between border-b border-emerald-800/80 pb-1">
+          <span class="text-emerald-200/70">Energy Target:</span>
+          <strong class="text-white">1,900 kcal (30kcal/kg)</strong>
+        </div>
+        <div class="flex justify-between border-b border-emerald-800/80 pb-1">
+          <span class="text-emerald-200/70">Protein Cap:</span>
+          <strong class="text-emerald-300 font-bold">0.65 g/kg HBV (43g)</strong>
+        </div>
+        <div class="flex justify-between border-b border-emerald-800/80 pb-1">
+          <span class="text-emerald-200/70">Fluid Allowance:</span>
+          <strong class="text-white">1,000 mL + UO</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-emerald-200/70">Sodium / Phos:</span>
+          <strong class="text-emerald-300">&lt;2g Na / &lt;800mg Phos</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4-Step Credential Progression Path -->
+    <div class="pt-4 border-t border-slate-100">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+          <div class="text-xs font-black text-slate-400 font-mono">STEP 01</div>
+          <div class="text-xs font-bold text-slate-900">Submit Case Sheet</div>
+          <p class="text-[11px] text-slate-500">Download live inpatient labs and calculate exchange meal matrix.</p>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+          <div class="text-xs font-black text-slate-400 font-mono">STEP 02</div>
+          <div class="text-xs font-bold text-slate-900">Faculty Peer Audit</div>
+          <p class="text-[11px] text-slate-500">Dt. Sk. Reshma reviews your protein titration &amp; drug-nutrient interactions.</p>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+          <div class="text-xs font-black text-slate-400 font-mono">STEP 03</div>
+          <div class="text-xs font-bold text-slate-900">1-on-1 Viva Defense</div>
+          <p class="text-[11px] text-slate-500">Join screen-share to defend clinical rationale and answer rounds queries.</p>
+        </div>
+        <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 space-y-1">
+          <div class="text-xs font-black text-emerald-700 font-mono">STEP 04</div>
+          <div class="text-xs font-bold text-emerald-900">QR Clinical Credential</div>
+          <p class="text-[11px] text-emerald-700">Tamper-proof verifiable certificate mapped to our hospital registry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- [Chunk: sections/6-apply.html] -->
+<!-- 6. INTERNSHIP APPLICATION FORM (id="apply") -->
+<section id="apply" class="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
+  <div class="bg-white rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-xl space-y-8">
+    <!-- Form Header -->
+    <div class="text-center space-y-2">
+      <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">Internship Application Form</span>
+      <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Register for the Upcoming 45-Day Internship Cohort</h2>
+      <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
+        Due to the direct 1-on-1 mentorship format and intensive bedside case reviews, intake is strictly capped at 15 interns per cohort.
+      </p>
+    </div>
+
+    <!-- Success Confirmation Card (Hidden by Default) -->
+    <div id="form-success-banner" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 transition-all duration-300">
+      <div class="flex items-start gap-3">
+        <div class="w-8 h-8 rounded-full bg-emerald-700 text-white flex items-center justify-center shrink-0 mt-0.5">
+          <i class="fa-solid fa-circle-check text-sm"></i>
+        </div>
+        <div class="space-y-1">
+          <h4 class="text-sm font-extrabold text-emerald-900">Application Received Successfully!</h4>
+          <p class="text-xs text-emerald-700 leading-relaxed">
+            Thank you for applying. Dt. Sk. Reshma's clinical intake admissions coordinator will review your academic qualifications and email/WhatsApp your 1-on-1 desk interview schedule within 24 hours.
           </p>
         </div>
+      </div>
+    </div>
 
-        <!-- Success Confirmation Card (Hidden by Default) -->
-        <div id="form-success-banner" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 transition-all duration-300">
-          <div class="flex items-start gap-3">
-            <div class="w-8 h-8 rounded-full bg-emerald-700 text-white flex items-center justify-center shrink-0 mt-0.5">
-              <i class="fa-solid fa-circle-check text-sm"></i>
-            </div>
-            <div class="space-y-1">
-              <h4 class="text-sm font-extrabold text-emerald-900">Application Received Successfully!</h4>
-              <p class="text-xs text-emerald-700 leading-relaxed">
-                Thank you for applying. Dt. Sk. Reshma's clinical intake admissions coordinator will review your academic qualifications and email/WhatsApp your 1-on-1 desk interview schedule within 24 hours.
-              </p>
-            </div>
-          </div>
+    <!-- Application Form -->
+    <form id="internship-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+      <!-- Row 1: Name & Email -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="fullName" class="block text-xs font-bold text-slate-700 mb-1">Full Legal Name *</label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName" 
+            placeholder="e.g. Ananya Sharma" 
+            class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
+            required 
+          />
         </div>
+        <div>
+          <label for="email" class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="ananya.sharma@gmail.com" 
+            class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
+            required 
+          />
+        </div>
+      </div>
 
-        <!-- Application Form -->
-        <form id="internship-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
-          <!-- Row 1: Name & Email -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label for="fullName" class="block text-xs font-bold text-slate-700 mb-1">Full Legal Name *</label>
-              <input 
-                type="text" 
-                id="fullName" 
-                name="fullName" 
-                placeholder="e.g. Ananya Sharma" 
-                class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
-                required 
-              />
-            </div>
-            <div>
-              <label for="email" class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                placeholder="ananya.sharma@gmail.com" 
-                class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
-                required 
-              />
-            </div>
-          </div>
-
-          <!-- Row 2: Phone & Qualification -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label for="mobile" class="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp Number *</label>
-              <input 
-                type="tel" 
-                id="mobile" 
-                name="mobile" 
-                placeholder="+91 98765 43210" 
-                class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
-                required 
-              />
-            </div>
-            <div>
-              <label for="qualification" class="block text-xs font-bold text-slate-700 mb-1">Highest Qualification / Background *</label>
-              <select 
-                id="qualification" 
-                name="qualification" 
-                class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all bg-white" 
-                required
-              >
-                <option value="" disabled selected>Select qualification</option>
-                <option value="bsc">B.Sc. Nutrition &amp; Dietetics (Final Year / Graduate)</option>
-                <option value="msc">M.Sc. Clinical Nutrition / Food Science</option>
-                <option value="pgdd">Post Graduate Diploma in Dietetics (PGDD)</option>
-                <option value="practicing">Practicing Dietitian / Career Switcher</option>
-                <option value="allied">MBBS / BAMS / Allied Healthcare Professional</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Preferred Meeting Slot -->
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-2">Preferred 1-on-1 Private Desk Slot *</label>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <label class="flex items-center gap-2 p-3 bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 rounded-xl cursor-pointer transition-colors">
-                <input type="radio" name="meeting-slot" value="morning" checked class="accent-emerald-700 w-4 h-4" />
-                <div class="text-xs">
-                  <span class="font-bold text-slate-800 block">Morning Slot</span>
-                  <span class="text-slate-500 text-[11px]">09:30 AM – 01:00 PM IST</span>
-                </div>
-              </label>
-              <label class="flex items-center gap-2 p-3 bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 rounded-xl cursor-pointer transition-colors">
-                <input type="radio" name="meeting-slot" value="evening" class="accent-emerald-700 w-4 h-4" />
-                <div class="text-xs">
-                  <span class="font-bold text-slate-800 block">Evening Slot</span>
-                  <span class="text-slate-500 text-[11px]">05:30 PM – 09:00 PM IST</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <!-- Statement of Purpose -->
-          <div>
-            <label for="sop" class="block text-xs font-bold text-slate-700 mb-1">Career Goal / Reason for Joining *</label>
-            <textarea 
-              id="sop" 
-              name="sop" 
-              rows="3" 
-              placeholder="e.g. Recently completed B.Sc. Nutrition. Seeking clinical ICU charting confidence and K-Sheet case training to pass hospital interview rounds." 
-              class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all"
-              required
-            ></textarea>
-          </div>
-
-          <!-- Agreement Checkbox -->
-          <div class="flex items-start gap-2 pt-1">
-            <input type="checkbox" id="commitment" required class="accent-emerald-700 w-4 h-4 mt-0.5" />
-            <label for="commitment" class="text-[11px] text-slate-500 leading-snug">
-              I understand that this 45-day hospital internship requires regular submission of clinical patient case sheets and participating in live 1-on-1 viva defense.
-            </label>
-          </div>
-
-          <!-- Submit Button -->
-          <button 
-            type="submit" 
-            class="w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-extrabold rounded-xl shadow-md hover:shadow-lg transition-all text-sm flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+      <!-- Row 2: Phone & Qualification -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="mobile" class="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp Number *</label>
+          <input 
+            type="tel" 
+            id="mobile" 
+            name="mobile" 
+            placeholder="+91 98765 43210" 
+            class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all" 
+            required 
+          />
+        </div>
+        <div>
+          <label for="qualification" class="block text-xs font-bold text-slate-700 mb-1">Highest Qualification / Background *</label>
+          <select 
+            id="qualification" 
+            name="qualification" 
+            class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all bg-white" 
+            required
           >
-            <i class="fa-solid fa-paper-plane text-xs"></i>
-            <span>Submit Application &amp; Book Intake Call</span>
-          </button>
-        </form>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- 7. FREQUENTLY ASKED QUESTIONS (id="faq")                                  -->
-    <!-- ========================================================================= -->
-    <section id="faq" class="max-w-4xl mx-auto px-6 py-16 scroll-mt-24 space-y-8">
-      <div class="text-center space-y-2">
-        <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">Clarifications for Freshers</span>
-        <h2 class="text-3xl font-black text-slate-900 tracking-tight">Frequently Asked Questions</h2>
-        <p class="text-xs sm:text-sm text-slate-600">Everything nutrition graduates and early-career dietitians ask prior to enrolling.</p>
-      </div>
-
-      <div class="space-y-3" id="faq-accordion">
-        <!-- FAQ 1 -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all">
-          <button type="button" class="faq-question w-full p-6 text-left flex items-center justify-between focus:outline-none">
-            <span class="text-sm font-extrabold text-slate-900">How do the 1-on-1 private meeting sessions work?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer px-6 pb-6">
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-              Unlike massive webinar programs with 200 participants where you never speak, DietMed pairs you directly into private meeting rooms with Dt. Sk. Reshma. During these scheduled calls, she reviews your K-Sheet calculations on screen-share, provides immediate clinical critique on macronutrient balances, clinical notes, and drug-nutrient interactions, and guides your hospital career.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 2 -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all">
-          <button type="button" class="faq-question w-full p-6 text-left flex items-center justify-between focus:outline-none">
-            <span class="text-sm font-extrabold text-slate-900">What is a K-Sheet and why is it essential for hospital jobs?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer px-6 pb-6">
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-              A K-Sheet (Kardex Clinical Assessment Sheet) is the official patient-tracking document utilized in tertiary hospital dietetics departments. Interns and fellows participate in authentic rounds, and medical heads always test candidates on real K-Sheets. Mastering them directly gives you an insurmountable edge over candidates with only textbook theory.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all">
-          <button type="button" class="faq-question w-full p-6 text-left flex items-center justify-between focus:outline-none">
-            <span class="text-sm font-extrabold text-slate-900">Can final-year students or career switchers apply?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer px-6 pb-6">
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-              Yes. Final-year students pursuing B.Sc., M.Sc., or Post Graduate Diplomas in Nutrition and Dietetics are fully eligible. Completing this internship prior to college completion allows you to showcase verifiable hospital case logs directly on your resume, accelerating your placement during campus drives.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all">
-          <button type="button" class="faq-question w-full p-6 text-left flex items-center justify-between focus:outline-none">
-            <span class="text-sm font-extrabold text-slate-900">Is the certificate verified and recognized by hiring hospitals?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer px-6 pb-6">
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-              Yes. Every certificate features a tamper-proof digital QR code and a unique Credential ID mapped to our Clinical Board Registry. Chief Dietitians and Hospital HR departments can scan the code to inspect your 120 completed clinical hours, case-sheet grades, and faculty sign-off.
-            </p>
-          </div>
+            <option value="" disabled selected>Select qualification</option>
+            <option value="bsc">B.Sc. Nutrition &amp; Dietetics (Final Year / Graduate)</option>
+            <option value="msc">M.Sc. Clinical Nutrition / Food Science</option>
+            <option value="pgdd">Post Graduate Diploma in Dietetics (PGDD)</option>
+            <option value="practicing">Practicing Dietitian / Career Switcher</option>
+            <option value="allied">MBBS / BAMS / Allied Healthcare Professional</option>
+          </select>
         </div>
       </div>
-    </section>
+
+      <!-- Preferred Meeting Slot -->
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-2">Preferred 1-on-1 Private Desk Slot *</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="flex items-center gap-2 p-3 bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 rounded-xl cursor-pointer transition-colors">
+            <input type="radio" name="meeting-slot" value="morning" checked class="accent-emerald-700 w-4 h-4" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-800 block">Morning Slot</span>
+              <span class="text-slate-500 text-[11px]">09:30 AM – 01:00 PM IST</span>
+            </div>
+          </label>
+          <label class="flex items-center gap-2 p-3 bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 rounded-xl cursor-pointer transition-colors">
+            <input type="radio" name="meeting-slot" value="evening" class="accent-emerald-700 w-4 h-4" />
+            <div class="text-xs">
+              <span class="font-bold text-slate-800 block">Evening Slot</span>
+              <span class="text-slate-500 text-[11px]">05:30 PM – 09:00 PM IST</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Statement of Purpose -->
+      <div>
+        <label for="sop" class="block text-xs font-bold text-slate-700 mb-1">Career Goal / Reason for Joining *</label>
+        <textarea 
+          id="sop" 
+          name="sop" 
+          rows="3" 
+          placeholder="e.g. Recently completed B.Sc. Nutrition. Seeking clinical ICU charting confidence and K-Sheet case training to pass hospital interview rounds." 
+          class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 focus:outline-none transition-all"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Agreement Checkbox -->
+      <div class="flex items-start gap-2 pt-1">
+        <input type="checkbox" id="commitment" required class="accent-emerald-700 w-4 h-4 mt-0.5" />
+        <label for="commitment" class="text-[11px] text-slate-500 leading-snug">
+          I understand that this 45-day hospital internship requires regular submission of clinical patient case sheets and participating in live 1-on-1 viva defense.
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-extrabold rounded-xl shadow-md hover:shadow-lg transition-all text-sm flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+      >
+        <i class="fa-solid fa-paper-plane text-xs"></i>
+        <span>Submit Application &amp; Book Intake Call</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+  <!-- [Chunk: sections/7-faq.html] -->
+<!-- 7. FREQUENTLY ASKED QUESTIONS (id="faq") -->
+<section id="faq" class="max-w-4xl mx-auto px-6 py-16 scroll-mt-24 space-y-8">
+  <div class="text-center space-y-2">
+    <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">Clarifications for Freshers</span>
+    <h2 class="text-3xl font-black text-slate-900 tracking-tight">Frequently Asked Questions</h2>
+    <p class="text-xs sm:text-sm text-slate-600">Everything nutrition graduates and early-career dietitians ask prior to enrolling.</p>
+  </div>
+
+  <div class="space-y-3" id="faq-accordion">
+    <!-- FAQ 1 -->
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all">
+      <button type="button" class="faq-question w-full p-6 text-left flex items-center justify-between focus:outline-none">
+        <span class="text-sm font-extrabold text-slate-900">How do the 1-on-1 private meeting sessions work?</span>
+        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+      </button>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          Unlike massive webinar programs with 200 participants where you never speak, DietMed pairs you directly into private meeting rooms with Dt. Sk. Reshma. During these scheduled calls, she reviews your K-Sheet calculations on screen-share, provides immediate clinical critique on macronutrient balances, clinical notes, and drug-nutrient interactions, and guides your hospital career.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all">
+      <button type="button" class="faq-question w-full p-6 text-left flex items-center justify-between focus:outline-none">
+        <span class="text-sm font-extrabold text-slate-900">What is a K-Sheet and why is it essential for hospital jobs?</span>
+        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+      </button>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          A K-Sheet (Kardex Clinical Assessment Sheet) is the official patient-tracking document utilized in tertiary hospital dietetics departments. Interns and fellows participate in authentic rounds, and medical heads always test candidates on real K-Sheets. Mastering them directly gives you an insurmountable edge over candidates with only textbook theory.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all">
+      <button type="button" class="faq-question w-full p-6 text-left flex items-center justify-between focus:outline-none">
+        <span class="text-sm font-extrabold text-slate-900">Can final-year students or career switchers apply?</span>
+        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+      </button>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          Yes. Final-year students pursuing B.Sc., M.Sc., or Post Graduate Diplomas in Nutrition and Dietetics are fully eligible. Completing this internship prior to college completion allows you to showcase verifiable hospital case logs directly on your resume, accelerating your placement during campus drives.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all">
+      <button type="button" class="faq-question w-full p-6 text-left flex items-center justify-between focus:outline-none">
+        <span class="text-sm font-extrabold text-slate-900">Is the certificate verified and recognized by hiring hospitals?</span>
+        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+      </button>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          Yes. Every certificate features a tamper-proof digital QR code and a unique Credential ID mapped to our Clinical Board Registry. Chief Dietitians and Hospital HR departments can scan the code to inspect your 120 completed clinical hours, case-sheet grades, and faculty sign-off.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
   </main>
 
-  <!-- ========================================================================= -->
-  <!-- 8. FOOTER                                                                 -->
-  <!-- ========================================================================= -->
-  <footer class="bg-white border-t border-slate-200 mt-16 text-slate-600 text-xs">
-    <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Brand & Academy Info -->
-      <div class="space-y-3 md:col-span-1">
-        <div class="flex items-center space-x-2">
-          <div class="w-8 h-8 rounded-lg bg-emerald-800 flex items-center justify-center text-white text-sm shadow">
-            <i class="fa-solid fa-notes-medical"></i>
-          </div>
-          <span class="text-base font-extrabold text-slate-900">DietMed Academy</span>
+  <!-- [Chunk: sections/8-footer.html] -->
+<!-- 8. FOOTER -->
+<footer class="bg-white border-t border-slate-200 mt-16 text-slate-600 text-xs">
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Brand & Academy Info -->
+    <div class="space-y-3 md:col-span-1">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-lg bg-emerald-800 flex items-center justify-center text-white text-sm shadow">
+          <i class="fa-solid fa-notes-medical"></i>
         </div>
-        <p class="text-slate-500 leading-relaxed text-[11px]">
-          Clinical nutrition training fellowship portal bridging academic dietetics with tertiary hospital rounds.
-        </p>
-        <div class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">
-          Advanced Inpatient Fellowship Portal
-        </div>
+        <span class="text-base font-extrabold text-slate-900">DietMed Academy</span>
       </div>
-
-      <!-- Quick Anchor Links -->
-      <div class="space-y-2">
-        <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Navigation</div>
-        <ul class="space-y-1.5 text-[11px]">
-          <li><a href="#matrix" class="hover:text-emerald-800 transition-colors">45-Day Transition Matrix</a></li>
-          <li><a href="#faculty" class="hover:text-emerald-800 transition-colors">Faculty &amp; Leadership</a></li>
-          <li><a href="#ksheets" class="hover:text-emerald-800 transition-colors">Clinical K-Sheets</a></li>
-          <li><a href="#apply" class="hover:text-emerald-800 transition-colors">Application Form</a></li>
-          <li><a href="#faq" class="hover:text-emerald-800 transition-colors">Frequently Asked Questions</a></li>
-        </ul>
-      </div>
-
-      <!-- Case Sheet Bank -->
-      <div class="space-y-2">
-        <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Clinical Tracks</div>
-        <ul class="space-y-1.5 text-[11px]">
-          <li>Nephrology (CKD Stage 3–5)</li>
-          <li>Endocrinology &amp; DKA Management</li>
-          <li>Intensive Care (Enteral / TPN)</li>
-          <li>Pediatric &amp; Oncology Nutrition</li>
-          <li>Nitrogen Balance &amp; Triage</li>
-        </ul>
-      </div>
-
-      <!-- Contact & Admissions -->
-      <div class="space-y-2">
-        <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Admissions Directorate</div>
-        <p class="text-[11px] text-slate-500">
-          WhatsApp Desk: <span class="font-bold text-slate-700">+91 98765 43210</span><br />
-          Email: <span class="font-bold text-slate-700">intake@dietmedacademy.org</span><br />
-          Location: Hyderabad, India
-        </p>
-        <div class="pt-2">
-          <a href="#apply" class="inline-block px-4 py-2 bg-emerald-800 text-white rounded-lg text-[10px] font-bold hover:bg-emerald-900 transition-colors">
-            Book Next Monday Slot
-          </a>
-        </div>
+      <p class="text-slate-500 leading-relaxed text-[11px]">
+        Clinical nutrition training fellowship portal bridging academic dietetics with tertiary hospital rounds.
+      </p>
+      <div class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">
+        Advanced Inpatient Fellowship Portal
       </div>
     </div>
 
-    <!-- Copyright Bar -->
-    <div class="border-t border-slate-100 py-6 text-center text-[11px] text-slate-400">
-      &copy; 2024–2025 DietMed Clinical Academy. All Rights Reserved. ISO 9001:2015 &amp; IDA Recognized Educational Framework.
+    <!-- Quick Anchor Links -->
+    <div class="space-y-2">
+      <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Navigation</div>
+      <ul class="space-y-1.5 text-[11px]">
+        <li><a href="#matrix" class="hover:text-emerald-800 transition-colors">45-Day Transition Matrix</a></li>
+        <li><a href="#faculty" class="hover:text-emerald-800 transition-colors">Faculty &amp; Leadership</a></li>
+        <li><a href="#ksheets" class="hover:text-emerald-800 transition-colors">Clinical K-Sheets</a></li>
+        <li><a href="#apply" class="hover:text-emerald-800 transition-colors">Application Form</a></li>
+        <li><a href="#faq" class="hover:text-emerald-800 transition-colors">Frequently Asked Questions</a></li>
+      </ul>
     </div>
-  </footer>
 
-  <!-- ========================================================================= -->
-  <!-- 9. INTERACTIVE JAVASCRIPT: Mobile Menu, FAQ Accordion, Form Handling      -->
-  <!-- ========================================================================= -->
-  <script>
-    // 1. Mobile Menu Toggle
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('menu-icon-open');
-    const iconClose = document.getElementById('menu-icon-close');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    <!-- Case Sheet Bank -->
+    <div class="space-y-2">
+      <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Clinical Tracks</div>
+      <ul class="space-y-1.5 text-[11px]">
+        <li>Nephrology (CKD Stage 3–5)</li>
+        <li>Endocrinology &amp; DKA Management</li>
+        <li>Intensive Care (Enteral / TPN)</li>
+        <li>Pediatric &amp; Oncology Nutrition</li>
+        <li>Nitrogen Balance &amp; Triage</li>
+      </ul>
+    </div>
 
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        if (isOpen) {
-          mobileMenu.classList.add('hidden');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        } else {
-          mobileMenu.classList.remove('hidden');
-          iconOpen.classList.add('hidden');
-          iconClose.classList.remove('hidden');
-        }
-      });
+    <!-- Contact & Admissions -->
+    <div class="space-y-2">
+      <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Admissions Directorate</div>
+      <p class="text-[11px] text-slate-500">
+        WhatsApp Desk: <span class="font-bold text-slate-700">+91 98765 43210</span><br />
+        Email: <span class="font-bold text-slate-700">intake@dietmedacademy.org</span><br />
+        Location: Hyderabad, India
+      </p>
+      <div class="pt-2">
+        <a href="#apply" class="inline-block px-4 py-2 bg-emerald-800 text-white rounded-lg text-[10px] font-bold hover:bg-emerald-900 transition-colors">
+          Book Next Monday Slot
+        </a>
+      </div>
+    </div>
+  </div>
 
-      // Close mobile menu when any mobile link is clicked
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        });
-      });
-    }
+  <!-- Copyright Bar -->
+  <div class="border-t border-slate-100 py-6 text-center text-[11px] text-slate-400">
+    &copy; 2024–2025 DietMed Clinical Academy. All Rights Reserved. ISO 9001:2015 &amp; IDA Recognized Educational Framework.
+  </div>
+</footer>
 
-    // 2. Interactive FAQ Accordion
-    const faqButtons = document.querySelectorAll('.faq-question');
-    faqButtons.forEach((btn, index) => {
-      // Initialize first FAQ open by default
-      if (index === 0) {
-        const answer = btn.nextElementSibling;
-        const icon = btn.querySelector('i');
-        answer.classList.add('open');
-        if (icon) icon.classList.add('rotate-180');
-      }
-
-      btn.addEventListener('click', () => {
-        const answer = btn.nextElementSibling;
-        const icon = btn.querySelector('i');
-        const isOpen = answer.classList.contains('open');
-
-        // Close other open FAQs
-        document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
-          if (openAnswer !== answer) {
-            openAnswer.classList.remove('open');
-            const parentBtn = openAnswer.previousElementSibling;
-            if (parentBtn && parentBtn.querySelector('i')) {
-              parentBtn.querySelector('i').classList.remove('rotate-180');
-            }
-          }
-        });
-
-        // Toggle clicked FAQ
-        if (isOpen) {
-          answer.classList.remove('open');
-          if (icon) icon.classList.remove('rotate-180');
-        } else {
-          answer.classList.add('open');
-          if (icon) icon.classList.add('rotate-180');
-        }
-      });
-    });
-
-    // 3. Form Submission Handler
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const banner = document.getElementById('form-success-banner');
-      const form = document.getElementById('internship-form');
-
-      if (banner) {
-        banner.classList.remove('hidden');
-        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      if (form) {
-        form.reset();
-      }
-    }
-  </script>
+  <!-- Interactive Scripts -->
+  <script src="js/main.js"></script>
 </body>
 </html>
